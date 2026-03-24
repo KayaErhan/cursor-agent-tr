@@ -7,11 +7,21 @@ Kullanicinin verdigi dokumana dayanarak projeyi minimum eforla calisir hale geti
 ## 0) On Hazirlik ve Tasarim Modu
 
 1. Dokumani oku, proje tipini belirle (web, api, cli, mobil).
-2. `/docs/TODO.md` yoksa olustur; varsa koru ve devam et.
-3. `/proje_tasarim` mantigini uygula:
+2. Teknik tercihleri sor ve kilitle:
+   - Yazilim dili/framework nedir?
+   - SQL/veritabani tercihi nedir?
+   - Cevap yoksa varsayilan: `TypeScript + Next.js` ve `PostgreSQL`
+   - Secimi `/docs/TECH_STACK.md` dosyasina kaydet.
+   - Secime gore `/docs/STACK_MATRIX.md` dosyasindaki uygun paket setini uygula.
+3. `/docs/TODO.md` yoksa olustur; varsa koru ve devam et.
+4. `/proje_tasarim` mantigini uygula:
    - Kullanici tercihi belirtilmisse onu kullan.
    - Belirtilmemisse varsayilan: `kurumsal`.
-4. Tum UI islerinde Tailwind CSS kullan.
+5. Tum UI islerinde Tailwind CSS kullan.
+6. Admin panel layout standardini zorunlu kil:
+   - Sol sidebar + topbar
+   - Bildirim, email/mesaj, profil alani
+   - Zengin dashboard + grafikler
 
 > Tasarim profili `/docs/DESIGN_PROFILE.md` dosyasina kaydedilmeli.
 
@@ -55,6 +65,11 @@ Her gorev icin:
 Kritik kural:
 - Bir gorev tamamlandiginda TODO tablosundaki sayisal ozeti guncelle (toplam, tamamlanan, devam eden, bekleyen).
 
+UI kalite kurali:
+- Renksiz/duz gorunum kabul edilmez.
+- Ikonografi, renk sistemi ve bilesen derinligi kullan.
+- Site tarafi varsa landing sayfasi premium gorunumde olmalı.
+
 ---
 
 ## 4) Tasarim Sonrasi Otomatik Eksik Taramasi (Zorunlu)
@@ -62,12 +77,19 @@ Kritik kural:
 Ilk calisan surum olustuktan hemen sonra otomatik `eksik tarama` yap ve sonucu manuel komut beklemeden uygula:
 
 1. Kod, test, guvenlik, UX, performans, erisilebilirlik ve dokumantasyon aciklarini tara.
-2. Buldugun eksikleri `/docs/GAP_REPORT.md` dosyasina siniflandir:
+2. Tasarim kalitesini ayrica tara:
+   - Renk sistemi yeterli mi?
+   - Ikonlar tutarli mi?
+   - Admin panel sol menulu mu?
+   - Bildirim/email modulleri var mi?
+   - Dashboard grafik ve KPI kartlari var mi?
+   - Tema secimleri (dark/soft-dark/light/hepsi) calisiyor mu?
+3. Buldugun eksikleri `/docs/GAP_REPORT.md` dosyasina siniflandir:
    - Kritik
    - Onemli
    - Iyilestirme
-3. Bu eksikleri otomatik olarak `/docs/TODO.md` dosyasina yeni gorevler olarak ekle.
-4. Eklenen gorevleri oncelige gore uygula.
+4. Bu eksikleri otomatik olarak `/docs/TODO.md` dosyasina yeni gorevler olarak ekle.
+5. Eklenen gorevleri oncelige gore uygula.
 
 Bu adim atlanamaz.
 

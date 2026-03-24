@@ -25,6 +25,8 @@ Cursor IDE'ye proje dökümanını verdiğinde, ajan otomatik olarak:
 - ✅ Tam işlevsel **Admin Paneli** (`/admin`)
 - ✅ **Tailwind CSS** ile yüksek kaliteli, responsive arayüzler
 - ✅ **Kullanım kılavuzu** ve **README** (her aşamada güncellenir)
+- ✅ Sol menülü admin panel, bildirim/email alanı ve detaylı dashboard grafikleri
+- ✅ Gerekli durumlarda `lucide-react`, `recharts`, `framer-motion` ile zengin UI deneyimi
 
 ---
 
@@ -81,19 +83,20 @@ Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 | `/proje_sifirla` | Mevcut çalışmayı arşivler, yeni proje için temizler |
 | `/proje_eksik_tara` | Proje eksiklerini ve iyileştirme önerilerini otomatik tarar |
 | `/proje_devam` | Taranan eksiklerden otomatik devam eder ve uygular |
-| `/proje_tasarim` | Kurumsal/standart tasarım profili seçer ve Tailwind ile uygular |
+| `/proje_tasarim` | Kurumsal/standart profil + dark/soft-dark/light/hepsi tema seçimi yapar |
 
 ### Temel Kullanım Akışı
 
 ```
 1. Cursor'u aç → Chat'i başlat (Ctrl+L)
 2. /proje_incele yaz → Dökümanı sürükle bırak → Enter
-3. /proje_tasarim ile tasarım profili seç (kurumsal/standart)
-4. /proje_basla yaz → Enter
-5. İlk sürümden sonra /proje_eksik_tara çalıştır
-6. /proje_devam ile eksikleri otomatik kapat
-7. /proje_test ile kaliteyi doğrula
-8. /proje_bitir ile teslim al
+3. Yazılım dili/framework ve SQL tercihini belirt (ajan stack matrisine göre paket önerir)
+4. /proje_tasarim ile profil ve tema seç (kurumsal/standart + dark/soft-dark/light/hepsi)
+5. /proje_basla yaz → Enter
+6. İlk sürümden sonra /proje_eksik_tara çalıştır
+7. /proje_devam ile eksikleri otomatik kapat
+8. /proje_test ile kaliteyi doğrula
+9. /proje_bitir ile teslim al
 ```
 
 ### Döküman Ekleme Yöntemleri

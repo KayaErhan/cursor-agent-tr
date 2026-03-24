@@ -13,6 +13,13 @@ Proje tamamlandiktan veya ara asamada, kodu ve dokumantasyonu tarayip eksikleri 
 - Performans iyilestirmeleri
 - UI/UX ve erisilebilirlik eksikleri
 - Dokumantasyon tutarsizliklari
+- Tasarim kalite checklist'i:
+  - Sol menulu admin panel var mi?
+  - Tema secimleri (dark/soft-dark/light/hepsi) calisiyor mu?
+  - Dashboard KPI + en az 3 grafik var mi?
+  - Bildirim ve email/mesaj alanlari var mi?
+  - Ikon ve renk sistemi yeterince zengin mi?
+  - Site tarafi (varsa) premium ve gorsel olarak dolu mu?
 
 ---
 

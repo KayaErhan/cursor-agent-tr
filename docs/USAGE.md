@@ -137,12 +137,14 @@ veya doğrudan başlamak için:
 
 **Çıktılar:**
 - Proje özeti ve teknik gereksinimler
+- Seçilen yazılım dili/framework
+- Seçilen SQL/veritabanı
 - Sistem mimarisi akış şeması
 - Risk analizi tablosu
 - Önerilen teknoloji stack'i
 - Tahmini görev sayısı ve kategoriler
 
-**Oluşturulan dosyalar:** `/docs/ANALYSIS.md`
+**Oluşturulan dosyalar:** `/docs/ANALYSIS.md`, `/docs/TECH_STACK.md`, `/docs/STACK_MATRIX.md`
 
 **Ne zaman kullanılır:** Geliştirmeye başlamadan önce, dökümanın kapsamını anlamak istediğinizde.
 
@@ -259,12 +261,19 @@ veya doğrudan başlamak için:
 
 ### `/proje_tasarim`
 
-**Ne yapar:** Tasarım profilini kullanıcıdan alır (`kurumsal` / `standart`) ve tüm UI katmanını Tailwind CSS ile bu profile göre uygular.
+**Ne yapar:** Tasarım profilini (`kurumsal` / `standart`) ve tema modunu (`dark` / `soft-dark` / `light` / `hepsi`) kullanıcıdan alır; tüm UI katmanını Tailwind CSS ile buna göre uygular.
 
 **Çıktılar:**
 - Seçilen tasarım profili
+- Seçilen tema modu
 - Renk/typography/spacing sisteminin profile göre uygulanması
 - Tasarıma ait eksiklerin TODO'ya otomatik eklenmesi
+- Sol menülü admin panel yapısının kurulması
+- Bildirim, email/mesaj alanları, detaylı dashboard ve grafiklerin üretilmesi
+- Onerilen UI paketlerinin uygulanmasi (duruma gore):
+  - `lucide-react` (ikon)
+  - `recharts` (grafik)
+  - `framer-motion` (mikro-animasyon)
 
 **Oluşturulan dosyalar:** `/docs/DESIGN_PROFILE.md`
 
@@ -321,7 +330,9 @@ veya doğrudan başlamak için:
         ↓
 🔍 /proje_incele  →  Analizi İncele & Onayla
         ↓
-🎨 /proje_tasarim →  kurumsal/standart profil seç
+🧱 Dil/Framework + SQL seçimi
+        ↓
+🎨 /proje_tasarim →  profil + tema seç (kurumsal/standart + dark/soft-dark/light/hepsi)
         ↓
 🚀 /proje_basla   →  Otomatik Geliştirme Başlar
         ↓

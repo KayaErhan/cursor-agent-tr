@@ -42,6 +42,19 @@ Her projede asagidaki dongu uygulanir:
 Gerekli dosya:
 - `/docs/TODO.md`
 - `/docs/GAP_REPORT.md`
+- `/docs/TECH_STACK.md`
+
+---
+
+## Teknoloji Secim Kurali (Zorunlu)
+
+- Proje baslangicinda kullaniciya yazilim dili/framework mutlaka sorulur.
+- SQL/veritabani tercihi mutlaka sorulur.
+- Kullanici secim yapmazsa varsayilan:
+  - Dil/framework: `TypeScript + Next.js`
+  - SQL/veritabani: `PostgreSQL`
+- Bu secimler `/docs/TECH_STACK.md` ve `/docs/ANALYSIS.md` dosyalarina yazilir.
+- Secime gore arac/paket onerileri `/docs/STACK_MATRIX.md` referansiyla belirlenir.
 
 ---
 
@@ -49,8 +62,30 @@ Gerekli dosya:
 
 - Tailwind CSS zorunlu.
 - Tasarim profili zorunlu: `kurumsal` veya `standart`.
+- Tema secimi zorunlu: `dark`, `soft-dark`, `light` veya `hepsi`.
 - Profil bilgisi `/docs/DESIGN_PROFILE.md` dosyasinda tutulur.
 - Kurumsal modda gorsel kalite daha detayli ve premium olmalidir.
+- Renksiz, duz veya "wireframe benzeri" gorunum kabul edilmez.
+- Ikonografi ve renk sistemi zorunlu.
+
+### Admin Panel UI Kurali (Zorunlu)
+
+- Menu her zaman solda (left sidebar).
+- Topbar'da bildirim ve email/mesaj aksiyonlari olmalı.
+- Dashboard sayfasinda KPI kartlari + grafikler + aktivite listesi bulunmali.
+- Grafikler line/bar/donut tiplerinden en az ucunu icermeli.
+- Tema gecisi secilen moda gore calismali (hepsi secildiyse switcher zorunlu).
+
+### UI Kutuphane Standardi (Tercih Sirasi)
+
+- Ikonlar icin: `lucide-react`
+- Grafikler icin: `recharts`
+- Mikro animasyonlar icin: `framer-motion`
+
+Kurallar:
+- Eger projede baska bir UI stack secili ve tutarli ise zorla degistirme.
+- Projede eksikse bu kutuphaneleri eklemeyi varsayilan cozum olarak degerlendir.
+- Grafik/ikon/animasyon ihtiyaci oldugu halde uygulanmadiysa kritik olmayan ama onemli bir eksik olarak GAP ve TODO'ya yaz.
 
 ---
 
@@ -61,6 +96,8 @@ Gerekli dosya:
 3. Dark/light mode
 4. Erisilebilirlik temel gereksinimleri
 5. Son dokumantasyon paketleri
+6. Bildirim merkezi
+7. Email/mesaj islemleri arayuzu
 
 ---
 

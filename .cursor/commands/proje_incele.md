@@ -4,6 +4,23 @@ Dokumani derin analiz et ve sadece raporlama yapma; otomatik TODO altyapisini da
 
 ---
 
+## Baslangicta Sorulacak Teknik Tercihler (Zorunlu)
+
+Kullanicidan su iki tercihi net sor:
+
+1. Yazilim dili / framework tercihi nedir?
+   - Ornek: TypeScript + Next.js, Python + Django, PHP + Laravel
+2. SQL/veritabani tercihi nedir?
+   - Ornek: PostgreSQL, MySQL, SQLite, MSSQL
+
+Eger kullanici cevap vermezse:
+- Dil varsayilani: `TypeScript + Next.js`
+- SQL varsayilani: `PostgreSQL`
+
+Secimi `/docs/ANALYSIS.md` ve `/docs/TECH_STACK.md` dosyalarina yaz.
+
+---
+
 ## Zorunlu Ciktilar
 
 1. `/docs/ANALYSIS.md`
@@ -18,6 +35,15 @@ Dokumani derin analiz et ve sadece raporlama yapma; otomatik TODO altyapisini da
 3. `/docs/TODO.md`
    - Analizden cikarilan ilk gorev listesi
    - Bagimliliklar ve oncelikler
+4. `/docs/TECH_STACK.md`
+   - Secilen yazilim dili / framework
+   - Secilen SQL/veritabani
+   - Neden bu secim yapildi
+   - Alternatifler (kisa)
+5. `/docs/STACK_MATRIX.md`
+   - Dile gore framework onerileri
+   - Dile gore test/kalite araci onerileri
+   - Veritabaniya gore ORM/surucu onerileri
 
 ---
 
