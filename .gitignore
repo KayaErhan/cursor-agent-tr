@@ -1,0 +1,17 @@
+# Ortam değişkenleri — asla commit'leme
+.env
+.env.local
+.env.production
+config/.env
+
+# OS dosyaları
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+*.swp
+
+# Geçici dosyalar
+archive/
+*.log
