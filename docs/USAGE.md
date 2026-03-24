@@ -85,6 +85,8 @@ Bu yöntemde komutlar **tüm projelerinizde** otomatik olarak çalışır.
 /proje_eksik_tara ✅ görünüyor
 /proje_devam     ✅ görünüyor
 /proje_tasarim   ✅ görünüyor
+/proje_kalite_kapisi ✅ görünüyor
+/proje_guvenlik_tara ✅ görünüyor
 ```
 
 ---
@@ -281,6 +283,36 @@ veya doğrudan başlamak için:
 
 ---
 
+### `/proje_kalite_kapisi`
+
+**Ne yapar:** Build, test, güvenlik, tasarım ve dokümantasyon kapılarını puanlayarak geçiş kararı verir.
+
+**Çıktılar:**
+- Toplam kalite puanı (100)
+- Geçen/kalan kalite kapıları
+- Bloke eden maddeler
+
+**Oluşturulan dosyalar:** `/docs/QUALITY_GATE_REPORT.md`
+
+**Ne zaman kullanılır:** `/proje_test` sonrasında, teslimden önce.
+
+---
+
+### `/proje_guvenlik_tara`
+
+**Ne yapar:** Güvenlik ve uyum kontrollerini tarar; kritik/yüksek açıkları TODO'ya yazar.
+
+**Çıktılar:**
+- Güvenlik bulgu listesi
+- Şiddet dağılımı
+- Düzeltme önerileri
+
+**Oluşturulan dosyalar:** `/docs/SECURITY_REPORT.md`, `/docs/TODO.md` (güncel)
+
+**Ne zaman kullanılır:** Kalite kapısı sonrası ve `/proje_bitir` öncesi.
+
+---
+
 ## 5. Proje Dökümanı Nasıl Hazırlanır?
 
 İyi bir proje dökümanı ajanın daha doğru çalışmasını sağlar. Aşağıdaki şablonu kullanabilirsiniz:
@@ -343,6 +375,10 @@ veya doğrudan başlamak için:
 📊 /proje_durum   →  İlerlemeyi Takip Et (isteğe bağlı, istediğin zaman)
         ↓
 🧪 /proje_test    →  Testleri Çalıştır (kritik aşamalar sonrası)
+        ↓
+🧩 /proje_kalite_kapisi → Kalite puanını doğrula
+        ↓
+🔐 /proje_guvenlik_tara → Güvenlik açıklarını temizle
         ↓
 🏁 /proje_bitir   →  Sonlandır & Teslim Al
 ```

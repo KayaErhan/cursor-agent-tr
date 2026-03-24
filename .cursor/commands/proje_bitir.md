@@ -10,6 +10,8 @@ Projeyi teslime kapatmadan once final kalite kapisini uygula.
 2. Acik varsa otomatik tamamlamayi dene; tamamlanamayanlari net raporla.
 3. `/docs/GAP_REPORT.md` icindeki kritikler kapandi mi kontrol et.
 4. `/docs/TEST_REPORT.md` son sonucunu guncelle.
+5. `/docs/QUALITY_GATE_REPORT.md` sonucu en az 85 mi kontrol et.
+6. `/docs/SECURITY_REPORT.md` icinde kritik/yuksek acik kalmadi mi kontrol et.
 
 ---
 

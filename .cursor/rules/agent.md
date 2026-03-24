@@ -27,9 +27,12 @@ Her projede asagidaki dongu uygulanir:
 4. Otomatik eksik tarama
 5. Eksiklerden devam
 6. Final test
-7. Teslim
+7. Kalite kapisi
+8. Guvenlik taramasi
+9. Teslim
 
 > "Otomatik eksik tarama" adimi atlanamaz.
+> "Kalite kapisi" ve "guvenlik taramasi" adimlari atlanamaz.
 
 ---
 
@@ -111,8 +114,11 @@ Her asamada guncelle:
 - `/docs/TODO.md`
 - `/docs/STATUS_REPORT.md`
 - `/docs/TEST_REPORT.md`
+- `/docs/QUALITY_GATE_REPORT.md`
+- `/docs/SECURITY_REPORT.md`
 - `/docs/GAP_REPORT.md`
 - `/docs/DESIGN_PROFILE.md`
+- `/docs/ENTERPRISE_ROADMAP.md`
 - `/CHANGELOG.md`
 
 ---

@@ -27,4 +27,4 @@ Projedeki tamamlanan modulleri test et, kritik ve orta seviyeleri otomatik duzel
 ## Test Sonu Karari
 
 - Kritik hata varsa: sonraki komut onerisi `/proje_devam`
-- Kritik yok, sadece dusuk iyilestirme varsa: `/proje_bitir`
+- Kritik yok, sadece dusuk iyilestirme varsa: sonraki komut onerisi `/proje_kalite_kapisi`

@@ -84,6 +84,8 @@ Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 | `/proje_eksik_tara` | Proje eksiklerini ve iyileştirme önerilerini otomatik tarar |
 | `/proje_devam` | Taranan eksiklerden otomatik devam eder ve uygular |
 | `/proje_tasarim` | Kurumsal/standart profil + dark/soft-dark/light/hepsi tema seçimi yapar |
+| `/proje_kalite_kapisi` | Kurumsal kalite kapılarını puanlayarak geçiş kararı verir |
+| `/proje_guvenlik_tara` | Güvenlik ve uyum taraması yapar, kritikleri raporlar |
 
 ### Temel Kullanım Akışı
 
@@ -96,7 +98,9 @@ Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 6. İlk sürümden sonra /proje_eksik_tara çalıştır
 7. /proje_devam ile eksikleri otomatik kapat
 8. /proje_test ile kaliteyi doğrula
-9. /proje_bitir ile teslim al
+9. /proje_kalite_kapisi ile kalite kapısını geç
+10. /proje_guvenlik_tara ile güvenlik temizliğini doğrula
+11. /proje_bitir ile teslim al
 ```
 
 ### Döküman Ekleme Yöntemleri
@@ -128,11 +132,15 @@ cursor-agent-tr/
 │   │   ├── proje_sifirla.md    # Temizle & sıfırla
 │   │   ├── proje_eksik_tara.md # Eksik ve öneri tarama
 │   │   ├── proje_devam.md      # Eksiklerden devam
-│   │   └── proje_tasarim.md    # Tasarım profili yönetimi
+│   │   ├── proje_tasarim.md    # Tasarım profili yönetimi
+│   │   ├── proje_kalite_kapisi.md # Kalite kapısı
+│   │   └── proje_guvenlik_tara.md # Güvenlik taraması
 │   └── rules/
 │       └── agent.md            # Sistem kuralları ve davranış tanımı
 ├── docs/
 │   ├── USAGE.md                # Detaylı kullanım kılavuzu
+│   ├── ENTERPRISE_ROADMAP.md   # Kurumsal olgunlaşma planı
+│   ├── STACK_MATRIX.md         # Stack öneri matrisi
 │   ├── TODO.md                 # Örnek todo listesi şablonu
 │   └── examples/               # Örnek proje dökümanları
 │       ├── ecommerce.md
