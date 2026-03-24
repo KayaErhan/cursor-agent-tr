@@ -82,6 +82,9 @@ Bu yöntemde komutlar **tüm projelerinizde** otomatik olarak çalışır.
 /proje_test      ✅ görünüyor
 /proje_bitir     ✅ görünüyor
 /proje_sifirla   ✅ görünüyor
+/proje_eksik_tara ✅ görünüyor
+/proje_devam     ✅ görünüyor
+/proje_tasarim   ✅ görünüyor
 ```
 
 ---
@@ -224,6 +227,51 @@ veya doğrudan başlamak için:
 
 ---
 
+### `/proje_eksik_tara`
+
+**Ne yapar:** Projeyi tamamlanma sonrası veya ara aşamada tarar; eksikleri, riskleri ve iyileştirme önerilerini sınıflandırır.
+
+**Çıktılar:**
+- Gap analizi (kritik/önemli/iyileştirme)
+- TODO'ya otomatik eklenen yeni görevler
+- Önceliklendirilmiş aksiyon listesi
+
+**Oluşturulan dosyalar:** `/docs/GAP_REPORT.md`, `/docs/TODO.md` (güncel)
+
+**Ne zaman kullanılır:** İlk çalışan sürümden hemen sonra ve teslim öncesi.
+
+---
+
+### `/proje_devam`
+
+**Ne yapar:** `/proje_eksik_tara` ile bulunan eksiklerden otomatik devam eder, uygular ve test eder.
+
+**Çıktılar:**
+- Kapatılan eksik listesi
+- Güncel TODO durumu
+- Kalan maddeler ve önerilen sonraki komut
+
+**Oluşturulan dosyalar:** `/docs/STATUS_REPORT.md`, `/docs/TODO.md` (güncel)
+
+**Ne zaman kullanılır:** Eksik tarama sonrası iyileştirme döngüsünde.
+
+---
+
+### `/proje_tasarim`
+
+**Ne yapar:** Tasarım profilini kullanıcıdan alır (`kurumsal` / `standart`) ve tüm UI katmanını Tailwind CSS ile bu profile göre uygular.
+
+**Çıktılar:**
+- Seçilen tasarım profili
+- Renk/typography/spacing sisteminin profile göre uygulanması
+- Tasarıma ait eksiklerin TODO'ya otomatik eklenmesi
+
+**Oluşturulan dosyalar:** `/docs/DESIGN_PROFILE.md`
+
+**Ne zaman kullanılır:** `/proje_basla` öncesi veya proje ortasında tasarım revizyonu gerektiğinde.
+
+---
+
 ## 5. Proje Dökümanı Nasıl Hazırlanır?
 
 İyi bir proje dökümanı ajanın daha doğru çalışmasını sağlar. Aşağıdaki şablonu kullanabilirsiniz:
@@ -273,7 +321,13 @@ veya doğrudan başlamak için:
         ↓
 🔍 /proje_incele  →  Analizi İncele & Onayla
         ↓
+🎨 /proje_tasarim →  kurumsal/standart profil seç
+        ↓
 🚀 /proje_basla   →  Otomatik Geliştirme Başlar
+        ↓
+🔎 /proje_eksik_tara → Eksikleri ve önerileri tara
+        ↓
+🛠️ /proje_devam   → Eksikleri otomatik kapat
         ↓
 📊 /proje_durum   →  İlerlemeyi Takip Et (isteğe bağlı, istediğin zaman)
         ↓

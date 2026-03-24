@@ -1,35 +1,25 @@
-# /proje_durum — Mevcut Geliştirme Durumunu Göster
+# /proje_durum - Anlik Durum ve Sonraki Aksiyon
 
-`/docs/TODO.md` dosyasını oku ve projenin anlık durumunu aşağıdaki formatta sun.
-
----
-
-## Durum Raporu Formatı
-
-### 📊 Genel İlerleme
-```
-Toplam Görev   : XX
-Tamamlanan     : XX  ✅
-Devam Eden     : XX  🔄
-Bekleyen       : XX  ⏳
-İlerleme       : %XX  [████████░░░░] 
-```
-
-### ✅ Tamamlanan Görevler
-Son tamamlanan 5 görevi listele.
-
-### 🔄 Şu An Üzerinde Çalışılan
-Aktif görevin adı, açıklaması ve tahmini bitiş süreci.
-
-### ⏳ Sıradaki Görevler
-Bir sonraki 3 görevi öncelik sırasıyla listele.
-
-### ⚠️ Engelleyen Sorunlar
-Bekleyen bağımlılıklar, hatalar veya çözüm bekleyen durumlar.
-
-### 📁 Oluşturulan Dosyalar
-Bu güne kadar oluşturulan önemli dosyaları listele.
+`/docs/TODO.md`, `/docs/GAP_REPORT.md` ve `/docs/STATUS_REPORT.md` dosyalarini kullanarak durumu tek yerde ozetle.
 
 ---
 
-Raporu `/docs/STATUS_REPORT.md` dosyasına da kaydet.
+## Zorunlu Rapor Basliklari
+
+1. Genel Ilerleme
+2. Son Tamamlanan 5 Gorev
+3. Su Anki Aktif Gorev
+4. Sonraki 5 Gorev (oncelik sirali)
+5. Engeller / Riskler
+6. Gap Raporundan acik kalan kritik maddeler
+7. Onerilen tek sonraki komut
+
+---
+
+## Onerilen Komut Mantigi
+
+- Kritik eksik varsa: `/proje_devam`
+- Test acigi varsa: `/proje_test`
+- Tum gorevler kapandiyse: `/proje_bitir`
+
+Raporu `/docs/STATUS_REPORT.md` dosyasina tarih damgasiyla kaydet.

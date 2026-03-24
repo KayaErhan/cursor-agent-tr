@@ -1,65 +1,30 @@
-# /proje_test — Uyum Kontrolü & Kapsamlı Test
+# /proje_test - Kapsamli Test, Duzeltme ve TODO Senkronu
 
-Şu ana kadar tamamlanan tüm bileşenler üzerinde kapsamlı test yürüt ve sonuçları raporla.
-
----
-
-## Test Kategorileri
-
-### 1. Birim Testleri (Unit Tests)
-- Her fonksiyon ve bileşeni bağımsız olarak test et.
-- Edge case'leri ve hata durumlarını kontrol et.
-
-### 2. Entegrasyon Testleri
-- Tüm modüllerin birbirleriyle uyumunu doğrula.
-- API endpoint'lerinin doğru çalıştığını test et.
-- Veritabanı bağlantılarını ve CRUD işlemlerini kontrol et.
-
-### 3. UI/UX Kontrolü
-- Tüm sayfaların responsive olduğunu doğrula.
-- Form validasyonlarını test et.
-- Erişilebilirlik (accessibility) standartlarını kontrol et.
-- Tailwind class'larının doğru uygulandığını doğrula.
-
-### 4. Güvenlik Kontrolü
-- Input validasyonu ve sanitization kontrolü.
-- Authentication/Authorization akışlarını test et.
-- SQL injection ve XSS açıklarını kontrol et.
-
-### 5. Admin Paneli Testi
-- Tüm admin panel özelliklerinin çalıştığını doğrula.
-- Yetki kontrolleri (authorization) doğru mu?
-- Raporlama ve CRUD işlemleri çalışıyor mu?
+Projedeki tamamlanan modulleri test et, kritik ve orta seviyeleri otomatik duzelt, sonucu TODO ile senkronla.
 
 ---
 
-## Hata Yönetimi
+## Test Alanlari
 
-Bulunan her hata için:
-1. Hatayı kaydet (konum, açıklama, şiddet)
-2. Şiddetine göre sınıflandır: 🔴 Kritik | 🟡 Orta | 🟢 Düşük
-3. Kritik ve orta hatalar için **otomatik düzeltme** yap.
-4. Düzeltme sonrası testi tekrarla.
-5. `/docs/TODO.md` içindeki ilgili maddedeki `[x]` işaretini güncelle.
+1. Birim test
+2. Entegrasyon test
+3. UI/UX ve responsive
+4. Guvenlik ve yetkilendirme
+5. Admin panel fonksiyonlari
+6. Performans temel kontrolleri (yavas sorgu, buyuk bundle, gereksiz tekrar render)
 
 ---
 
-## Çıktı
+## Zorunlu Davranis
 
-Test sonuçlarını `/docs/TEST_REPORT.md` dosyasına kaydet:
+- Bulunan her hata icin TODO'ya gorev ac.
+- Kritik ve orta hatalari ayni akista otomatik duzeltmeyi dene.
+- Duzeltme sonrasinda ilgili testi tekrar calistir.
+- Sonucu `/docs/TEST_REPORT.md` ve `/docs/GAP_REPORT.md` dosyalarina yaz.
 
-```markdown
-# Test Raporu — [Tarih]
+---
 
-## Özet
-- Toplam Test: XX
-- Geçen: XX ✅
-- Başarısız: XX ❌
-- Atlanan: XX ⏭️
+## Test Sonu Karari
 
-## Hatalar
-...
-
-## Öneriler
-...
-```
+- Kritik hata varsa: sonraki komut onerisi `/proje_devam`
+- Kritik yok, sadece dusuk iyilestirme varsa: `/proje_bitir`

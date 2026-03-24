@@ -1,25 +1,26 @@
-# /proje_sifirla — Projeyi Temizle & Sıfırdan Başlamaya Hazırla
+# /proje_sifirla - Arsivle ve Temiz Baslangic Hazirla
 
-Bu komut mevcut projeyi arşivler ve temiz bir başlangıç için hazırlar.
-
----
-
-## Adımlar
-
-### 1. Mevcut Durumu Arşivle
-- `/docs/` klasörünü `/archive/[tarih]/docs/` olarak kopyala.
-- `/docs/TODO.md` ve `/docs/ANALYSIS.md` dosyalarının yedeğini al.
-
-### 2. Çalışma Dosyalarını Temizle
-- `/docs/TODO.md` → Boşalt, sadece başlık bırak.
-- `/docs/ANALYSIS.md` → Boşalt.
-- `/docs/TEST_REPORT.md` → Boşalt.
-- `/docs/STATUS_REPORT.md` → Boşalt.
-
-### 3. Kullanıcıyı Bilgilendir
-Temizlik tamamlandığında:
-> "Proje sıfırlandı. Arşiv `/archive/[tarih]/` dizinine kaydedildi. Yeni projeye başlamak için dökümanı ver ve `/proje_basla` komutunu çalıştır."
+Mevcut calismayi guvenli arsivleyip yeni donguye hazir duruma getir.
 
 ---
 
-⚠️ **Uyarı:** Bu komut mevcut ilerlemeyi siler. Kullanmadan önce yedek aldığından emin ol.
+## Adimlar
+
+1. `/docs` ve kritik proje metinlerini `/archive/[tarih-saat]/` altina kopyala.
+2. Asagidaki dosyalari sifirla veya yeniden olustur:
+   - `/docs/TODO.md`
+   - `/docs/ANALYSIS.md`
+   - `/docs/TEST_REPORT.md`
+   - `/docs/STATUS_REPORT.md`
+   - `/docs/GAP_REPORT.md`
+   - `/docs/DESIGN_PROFILE.md`
+3. Yeni TODO'yu bos degil, "baslangic gorevleri" ile olustur.
+
+---
+
+## Son Mesaj
+
+Kullaniciya:
+- Arsiv yolu
+- Sifirlanan dosyalar
+- Sonraki komut: `/proje_incele` veya `/proje_basla`

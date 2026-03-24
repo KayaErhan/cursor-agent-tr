@@ -79,17 +79,21 @@ Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 | `/proje_test` | Tüm bileşenleri test eder, hataları otomatik düzeltir |
 | `/proje_bitir` | Projeyi sonlandırır, config ekranı ve son dokümantasyonu oluşturur |
 | `/proje_sifirla` | Mevcut çalışmayı arşivler, yeni proje için temizler |
+| `/proje_eksik_tara` | Proje eksiklerini ve iyileştirme önerilerini otomatik tarar |
+| `/proje_devam` | Taranan eksiklerden otomatik devam eder ve uygular |
+| `/proje_tasarim` | Kurumsal/standart tasarım profili seçer ve Tailwind ile uygular |
 
 ### Temel Kullanım Akışı
 
 ```
 1. Cursor'u aç → Chat'i başlat (Ctrl+L)
 2. /proje_incele yaz → Dökümanı sürükle bırak → Enter
-3. Analizi onayla
+3. /proje_tasarim ile tasarım profili seç (kurumsal/standart)
 4. /proje_basla yaz → Enter
-5. Ajanın çalışmasını izle
-6. /proje_durum ile ilerlemeyi takip et
-7. /proje_bitir ile teslim al
+5. İlk sürümden sonra /proje_eksik_tara çalıştır
+6. /proje_devam ile eksikleri otomatik kapat
+7. /proje_test ile kaliteyi doğrula
+8. /proje_bitir ile teslim al
 ```
 
 ### Döküman Ekleme Yöntemleri
@@ -118,7 +122,10 @@ cursor-agent-tr/
 │   │   ├── proje_durum.md      # İlerleme raporu
 │   │   ├── proje_test.md       # Test & uyum kontrolü
 │   │   ├── proje_bitir.md      # Proje sonlandırma
-│   │   └── proje_sifirla.md    # Temizle & sıfırla
+│   │   ├── proje_sifirla.md    # Temizle & sıfırla
+│   │   ├── proje_eksik_tara.md # Eksik ve öneri tarama
+│   │   ├── proje_devam.md      # Eksiklerden devam
+│   │   └── proje_tasarim.md    # Tasarım profili yönetimi
 │   └── rules/
 │       └── agent.md            # Sistem kuralları ve davranış tanımı
 ├── docs/
@@ -139,12 +146,16 @@ cursor-agent-tr/
 ## 🎯 Örnek Senaryo
 
 ```
-Kullanıcı: @eticaret_projesi.pdf /proje_basla
+Kullanıcı: @eticaret_projesi.pdf /proje_tasarim
+Kullanıcı: kurumsal
+Kullanıcı: /proje_basla
 
 Ajan:
   ✅ Aşama 1: Döküman analiz edildi
   ✅ Aşama 2: Akış şeması oluşturuldu → /docs/FLOWCHART.md
   ✅ Aşama 3: 24 görev oluşturuldu → /docs/TODO.md
+  ✅ Otomatik eksik tarama tamamlandı → /docs/GAP_REPORT.md
+  ✅ 9 yeni eksik görevi TODO'ya eklendi
 
   🔄 GÖREV-001: Proje altyapısı kuruluyor...
   ✅ GÖREV-001: Tamamlandı
