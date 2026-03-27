@@ -2,6 +2,9 @@
 
 > Bu kılavuz, Cursor Otonom Geliştirme Ajanı'nı nasıl kuracağınızı, yapılandıracağınızı ve verimli şekilde kullanacağınızı adım adım açıklar.
 
+Bu surumde varsayilan calisma modu **Expert Mode** olarak kabul edilir.
+Detayli kalite standardi icin: `/docs/EXPERT_PRODUCT_STANDARD.md`
+
 ---
 
 ## İçindekiler

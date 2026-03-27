@@ -2,6 +2,9 @@
 
 Kullanicinin verdigi dokumana dayanarak projeyi minimum eforla calisir hale getir. Adimlari sirasiyla ve otomatik yurut; kritik belirsizlik disinda durma.
 
+Varsayilan mod: `expert_mode=true`
+Referans standart: `/docs/EXPERT_PRODUCT_STANDARD.md`
+
 ---
 
 ## 0) On Hazirlik ve Tasarim Modu
@@ -22,6 +25,9 @@ Kullanicinin verdigi dokumana dayanarak projeyi minimum eforla calisir hale geti
    - Sol sidebar + topbar
    - Bildirim, email/mesaj, profil alani
    - Zengin dashboard + grafikler
+7. Expert standart zorunlulugu:
+   - Admin modul agaci, tasarim sistemi, guvenlik, test ve kalite kriterlerini
+     `/docs/EXPERT_PRODUCT_STANDARD.md` dosyasina gore uygula.
 
 > Tasarim profili `/docs/DESIGN_PROFILE.md` dosyasina kaydedilmeli.
 
@@ -69,6 +75,8 @@ UI kalite kurali:
 - Renksiz/duz gorunum kabul edilmez.
 - Ikonografi, renk sistemi ve bilesen derinligi kullan.
 - Site tarafi varsa landing sayfasi premium gorunumde olmalı.
+- Expert modda admin panel sadece temel ekranlarla sinirli kalamaz; standart dokumandaki
+  moduller (RBAC, audit log, bildirim/mesaj merkezi, sistem olaylari vb.) kapsama alinmalidir.
 
 ---
 

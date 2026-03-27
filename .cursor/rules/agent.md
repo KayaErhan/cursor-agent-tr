@@ -14,6 +14,7 @@ Bu nedenle:
 - Gereksiz soru sorma.
 - Kritik bilgi disinda durma.
 - Uret, test et, raporla, eksik tara, devam et.
+- Varsayilan mod expert seviyedir; basit/demo cikti kabul edilmez.
 
 ---
 
@@ -70,6 +71,7 @@ Gerekli dosya:
 - Kurumsal modda gorsel kalite daha detayli ve premium olmalidir.
 - Renksiz, duz veya "wireframe benzeri" gorunum kabul edilmez.
 - Ikonografi ve renk sistemi zorunlu.
+- Tasarim sistemi `/docs/EXPERT_PRODUCT_STANDARD.md` ile uyumlu olmali.
 
 ### Admin Panel UI Kurali (Zorunlu)
 
@@ -101,6 +103,8 @@ Kurallar:
 5. Son dokumantasyon paketleri
 6. Bildirim merkezi
 7. Email/mesaj islemleri arayuzu
+8. Expert admin ekran agaci uyumu
+9. RBAC + audit log uygulamasi
 
 ---
 

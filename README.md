@@ -21,6 +21,9 @@ Cursor IDE'ye proje dökümanını verdiğinde, ajan otomatik olarak:
 7. ⚙️ **Config ekranı oluşturur** — Veritabanı, SMTP vb. ayarlar
 8. 📚 **Dokümantasyon yazar** — README, kullanım kılavuzu, changelog
 
+Varsayilan calisma seviyesi: **Expert Mode**  
+Referans: `docs/EXPERT_PRODUCT_STANDARD.md`
+
 **Her projede zorunlu olarak şunları üretir:**
 - ✅ Tam işlevsel **Admin Paneli** (`/admin`)
 - ✅ **Tailwind CSS** ile yüksek kaliteli, responsive arayüzler

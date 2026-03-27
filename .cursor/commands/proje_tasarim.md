@@ -1,6 +1,7 @@
 # /proje_tasarim - Tasarim Profili Sec ve Uygula
 
 Projenin tasarim tarzini kullanicidan secmesini iste ve secime gore butun UI katmanina uygula.
+Bu komut, `/docs/EXPERT_PRODUCT_STANDARD.md` icindeki tasarim sistemi kurallarini temel alir.
 
 ---
 
@@ -40,6 +41,9 @@ Her iki profilde de:
 - Ikon seti ile tutarli ikonografi
 - Gorunur durum bilesenleri (badge, alert, toast, progress, skeleton)
 - Kartlar, tablolar, formlar ve modallar icin tutarli tasarim sistemi
+- Design token katmanlari zorunlu: color, spacing, radius, shadow, typography, motion
+- Component katmanlari zorunlu: primitive, composite, pattern
+- Her kritik ekranda bos/yukleniyor/hata state'leri zorunlu
 
 ## Onerilen UI Kutuphane Politikasi
 
@@ -68,6 +72,19 @@ Uygulama kurali:
   - Son aktiviteler
   - Hizli islem butonlari
 - Grafikler gercek veri yoksa ornek/veri taklit (mock) ile dolu gorunmeli.
+- Expert modda admin ekran agaci minimumu:
+  - `/admin/dashboard`
+  - `/admin/users`
+  - `/admin/roles`
+  - `/admin/permissions`
+  - `/admin/workflows`
+  - `/admin/notifications`
+  - `/admin/messages`
+  - `/admin/reports`
+  - `/admin/settings/general`
+  - `/admin/settings/security`
+  - `/admin/audit-logs`
+  - `/admin/system-events`
 
 ## Site Tarafi UI Standarti (Varsa)
 
@@ -97,3 +114,4 @@ Uygulama kurali:
 Secilen profil ve uygulama notlarini `/docs/DESIGN_PROFILE.md` dosyasina yaz.
 Tasarimla ilgili eksikler varsa TODO'ya otomatik ekle.
 Tasarim kalite kontrol sonucunu `/docs/GAP_REPORT.md` dosyasina da ekle.
+Expert tasarim kriteri uyum ozetini `/docs/QUALITY_GATE_REPORT.md` altinda "Tasarim Kapisi"na yaz.

@@ -1,6 +1,7 @@
 # /proje_kalite_kapisi - Kurumsal Kalite Kapisi
 
 Projeyi bir sonraki asamaya gecirmeden once asagidaki kalite kapilarini zorunlu kontrol et.
+Puanlama ve kontrol maddeleri `/docs/EXPERT_PRODUCT_STANDARD.md` ile uyumlu olmalidir.
 
 ---
 
@@ -14,6 +15,8 @@ Projeyi bir sonraki asamaya gecirmeden once asagidaki kalite kapilarini zorunlu 
    - Kritik guvenlik acigi var mi?
 4. Tasarim kapisi
    - UI kalite standardi saglandi mi?
+   - Design token + component katmanlari tam mi?
+   - Admin panel expert ekran agaci tamam mi?
 5. Dokumantasyon kapisi
    - README/USAGE/TODO/GAP tutarli mi?
 
@@ -31,6 +34,11 @@ Esikler:
 - 85+ -> Gec
 - 70-84 -> Sartli gecis (TODO'ya zorunlu iyilestirme)
 - 0-69 -> Gecemez, duzeltme zorunlu
+
+Zorunlu blokaj:
+- Guvenlik skoru < 85 ise gecemez
+- UI/UX skoru < 85 ise gecemez
+- Kritik/yuksek guvenlik bulgusu varsa gecemez
 
 ---
 
