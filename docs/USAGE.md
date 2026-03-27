@@ -36,7 +36,7 @@ Detayli kalite standardi icin: `/docs/EXPERT_PRODUCT_STANDARD.md`
 ### 2.1 Repoyu Klonlayın
 
 ```bash
-git clone https://github.com/KULLANICI_ADIN/cursor-agent-tr.git
+git clone https://github.com/kayaerhan/cursor-agent-tr.git
 cd cursor-agent-tr
 ```
 
@@ -90,6 +90,7 @@ Bu yöntemde komutlar **tüm projelerinizde** otomatik olarak çalışır.
 /proje_tasarim   ✅ görünüyor
 /proje_kalite_kapisi ✅ görünüyor
 /proje_guvenlik_tara ✅ görünüyor
+/git_agent_update ✅ görünüyor
 ```
 
 ---
@@ -157,16 +158,19 @@ veya doğrudan başlamak için:
 
 ### `/proje_basla`
 
-**Ne yapar:** Proje dökümanını alır ve baştan sona tam otomatik geliştirme sürecini başlatır. 7 aşamalı süreci kullanıcıdan ek komut beklemeden yürütür.
+**Ne yapar:** Proje dökümanını alır ve expert standartta otomatik geliştirme sürecini başlatır. Kanonik akış içinde `/proje_incele` ve `/proje_tasarim` sonrasındaki ana geliştirme adımıdır.
 
-**Aşamalar:**
-1. Döküman analizi
-2. Akış şeması oluşturma
-3. İş planı ve todo listesi
-4. Otomatik geliştirme döngüsü
-5. Genel analiz ve ek öneriler
-6. Yapılandırma arayüzü
-7. Son dokümantasyon
+**Kanonik yaşam döngüsündeki yeri:**
+1. `/proje_incele`
+2. Dil/Framework + SQL seçimi
+3. `/proje_tasarim`
+4. `/proje_basla`
+5. `/proje_eksik_tara`
+6. `/proje_devam`
+7. `/proje_test`
+8. `/proje_kalite_kapisi`
+9. `/proje_guvenlik_tara`
+10. `/proje_bitir`
 
 **Oluşturulan dosyalar:** Tüm proje dosyaları, `/docs/TODO.md`, `/docs/FLOWCHART.md`, `/docs/ANALYSIS.md`, `/README.md`, `/docs/USAGE.md`
 
@@ -313,6 +317,19 @@ veya doğrudan başlamak için:
 **Oluşturulan dosyalar:** `/docs/SECURITY_REPORT.md`, `/docs/TODO.md` (güncel)
 
 **Ne zaman kullanılır:** Kalite kapısı sonrası ve `/proje_bitir` öncesi.
+
+---
+
+### `/git_agent_update`
+
+**Ne yapar:** Agent komut/rule setini git reposundan günceller, güncelleme varsa pull eder ve komutları senkronlar.
+
+**Çıktılar:**
+- Güncelleme durumu (güncel / güncellendi / hata)
+- Eski commit -> yeni commit
+- Senkronlanan komut/rule özeti
+
+**Ne zaman kullanılır:** Repo güncellemesi yayımlandığında veya komut setini en güncel hale çekmek istediğinizde.
 
 ---
 
@@ -486,6 +503,18 @@ Proje dökümanınıza şu satırı ekleyin:
 ```
 Teknik gereksinim: Tailwind CSS v3 kullanılmalı. CDN veya npm ile kurulabilir.
 ```
+
+### Kalite doğrulama nasıl yapılır?
+
+```bash
+python scripts/validate_quality.py
+```
+
+Bu komut su kontrolleri yapar:
+- Komut referanslari gercek dosyalara gidiyor mu?
+- README/USAGE/proje_basla akisi kanonik sirayla uyumlu mu?
+- TODO satirlari beklenen semaya uyuyor mu?
+- Placeholder ve kirik lokal link var mi?
 
 ---
 

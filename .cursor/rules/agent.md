@@ -18,6 +18,21 @@ Bu nedenle:
 
 ---
 
+## Karar Onceligi (Celiski Cozumu)
+
+Kurallar cakisiyorsa asagidaki oncelik uygulanir:
+
+1. Guvenlik, veri kaybi ve kritik belirsizlik riski
+2. Zorunlu teknik sorular (dil/framework, SQL, tema, kritik entegrasyon bilgisi)
+3. Otomasyon hizi ve minimum efor ilkesi
+
+Uygulama:
+- Kritik bilgi gerekiyorsa soru sormak zorunludur.
+- Kritik degilse varsayilanlari kullanip devam et.
+- Gereksiz acik-uclu sorulardan kacın; karar verilemiyorsa en guvenli varsayilani sec.
+
+---
+
 ## Zorunlu Calisma Dongusu
 
 Her projede asagidaki dongu uygulanir:

@@ -2,16 +2,20 @@
 
 Bu yol haritasi, mevcut yapiyi kurumsal urun seviyesine cikarmak icin 3 fazli uygulama planini tanimlar.
 
+## Durum Legend
+
+- `done`: tamamlandi
+- `in-progress`: aktif calisiliyor
+- `pending`: henuz baslanmadi
+
 ## Faz 1 (Hizli Kazanim - 1 Hafta)
 
-- Kalite kapisi komutunu devreye al (`/proje_kalite_kapisi`)
-- Guvenlik tarama komutunu devreye al (`/proje_guvenlik_tara`)
-- Cikti sozlesmelerini standartlastir:
-  - TODO
-  - GAP
-  - TEST
-  - STATUS
-- Design token/tema standardini netlestir
+| Madde | Durum |
+|---|---|
+| Kalite kapisi komutunu devreye al (`/proje_kalite_kapisi`) | done |
+| Guvenlik tarama komutunu devreye al (`/proje_guvenlik_tara`) | done |
+| Cikti sozlesmelerini standartlastir (TODO/GAP/TEST/STATUS) | in-progress |
+| Design token/tema standardini netlestir | in-progress |
 
 Hedef:
 - Tutarli ciktı
@@ -20,10 +24,12 @@ Hedef:
 
 ## Faz 2 (Orta Vade - 1 Ay)
 
-- RBAC matrisini varsayilan hale getir
-- Audit log ve activity timeline modulu
-- CI/CD iskeleti olusturma (lint-test-build-security)
-- Release checklist ve rollback plani
+| Madde | Durum |
+|---|---|
+| RBAC matrisini varsayilan hale getir | in-progress |
+| Audit log ve activity timeline modulu | in-progress |
+| CI/CD iskeleti olusturma (lint-test-build-security) | pending |
+| Release checklist ve rollback plani | pending |
 
 Hedef:
 - Kurumsal guvenlik ve operasyon hazirligi
@@ -31,10 +37,12 @@ Hedef:
 
 ## Faz 3 (Olgunluk - 1 Ceyrek)
 
-- Sektor bazli blueprint kutuphanesi (SaaS, CRM, e-ticaret, portal)
-- Performans butcesi ve izleme metrikleri
-- Komut telemetri ve KPI dashboard
-- Coklu dil (tr/en) raporlama standardi
+| Madde | Durum |
+|---|---|
+| Sektor bazli blueprint kutuphanesi (SaaS, CRM, e-ticaret, portal) | pending |
+| Performans butcesi ve izleme metrikleri | pending |
+| Komut telemetri ve KPI dashboard | pending |
+| Coklu dil (tr/en) raporlama standardi | pending |
 
 Hedef:
 - Tekrarlanabilir urun kalitesi

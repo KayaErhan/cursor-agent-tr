@@ -5,6 +5,18 @@ Kullanicinin verdigi dokumana dayanarak projeyi minimum eforla calisir hale geti
 Varsayilan mod: `expert_mode=true`
 Referans standart: `/docs/EXPERT_PRODUCT_STANDARD.md`
 
+Kanonik proje yasam dongusu (README ve USAGE ile ayni):
+1. /proje_incele
+2. Dil/Framework + SQL secimi
+3. /proje_tasarim
+4. /proje_basla
+5. /proje_eksik_tara
+6. /proje_devam
+7. /proje_test
+8. /proje_kalite_kapisi
+9. /proje_guvenlik_tara
+10. /proje_bitir
+
 ---
 
 ## 0) On Hazirlik ve Tasarim Modu

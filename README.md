@@ -89,21 +89,30 @@ Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 | `/proje_tasarim` | Kurumsal/standart profil + dark/soft-dark/light/hepsi tema seçimi yapar |
 | `/proje_kalite_kapisi` | Kurumsal kalite kapılarını puanlayarak geçiş kararı verir |
 | `/proje_guvenlik_tara` | Güvenlik ve uyum taraması yapar, kritikleri raporlar |
+| `/git_agent_update` | Repodan güncelleme alır, komut/rule setini senkronlar |
+
+### Kalite Doğrulama
+
+```bash
+python scripts/validate_quality.py
+```
+
+Bu komut; komut-dokuman tutarliligi, placeholder/kirik linkler, TODO formati ve sozlesme kontrollerini dogrular.
 
 ### Temel Kullanım Akışı
 
 ```
 1. Cursor'u aç → Chat'i başlat (Ctrl+L)
 2. /proje_incele yaz → Dökümanı sürükle bırak → Enter
-3. Yazılım dili/framework ve SQL tercihini belirt (ajan stack matrisine göre paket önerir)
-4. /proje_tasarim ile profil ve tema seç (kurumsal/standart + dark/soft-dark/light/hepsi)
-5. /proje_basla yaz → Enter
-6. İlk sürümden sonra /proje_eksik_tara çalıştır
-7. /proje_devam ile eksikleri otomatik kapat
-8. /proje_test ile kaliteyi doğrula
-9. /proje_kalite_kapisi ile kalite kapısını geç
-10. /proje_guvenlik_tara ile güvenlik temizliğini doğrula
-11. /proje_bitir ile teslim al
+3. Dil/Framework + SQL seçimini netleştir
+4. /proje_tasarim ile profil/tema seç
+5. /proje_basla ile geliştirmeyi başlat
+6. /proje_eksik_tara ile eksikleri tara
+7. /proje_devam ile eksikleri kapat
+8. /proje_test ile testleri çalıştır
+9. /proje_kalite_kapisi ile kalite eşiğini doğrula
+10. /proje_guvenlik_tara ile güvenlik taramasını tamamla
+11. /proje_bitir ile config/setup dahil teslimi kapat
 ```
 
 ### Döküman Ekleme Yöntemleri

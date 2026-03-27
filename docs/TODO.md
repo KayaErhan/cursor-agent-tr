@@ -10,71 +10,79 @@
 | Durum | Sayı |
 |---|---|
 | ✅ Tamamlanan | 0 |
-| 🔄 Devam Eden | 0 |
-| ⏳ Bekleyen | 0 |
-| **Toplam** | **0** |
+| 🔄 Devam Eden | 1 |
+| ⏳ Bekleyen | 28 |
+| **Toplam** | **29** |
 
 ---
 
 ## 🏗️ Altyapı
 
 ```
-[ ] GÖREV-001 | Proje klasör yapısını oluştur         | Bağımlılık: YOK          | Öncelik: YÜKSEK
-[ ] GÖREV-002 | Bağımlılıkları yükle ve yapılandır    | Bağımlılık: GÖREV-001    | Öncelik: YÜKSEK
-[ ] GÖREV-003 | Veritabanı şemasını oluştur           | Bağımlılık: GÖREV-001    | Öncelik: YÜKSEK
-[ ] GÖREV-004 | Ortam değişkenlerini (env) ayarla     | Bağımlılık: GÖREV-001    | Öncelik: YÜKSEK
+[ ] GOREV-001 | Proje klasor yapisini olustur             | Bagimlilik: YOK          | Oncelik: Yuksek | Durum: Devam Ediyor
+[ ] GOREV-002 | Bagimliliklari yukle ve yapilandir        | Bagimlilik: GOREV-001    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-003 | Veritabani semasini olustur               | Bagimlilik: GOREV-001    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-004 | Ortam degiskenlerini (env) ayarla         | Bagimlilik: GOREV-001    | Oncelik: Yuksek | Durum: Bekliyor
 ```
 
 ## ⚙️ Backend
 
 ```
-[ ] GÖREV-005 | API temel yapısını kur                | Bağımlılık: GÖREV-002    | Öncelik: YÜKSEK
-[ ] GÖREV-006 | Authentication sistemi (giriş/çıkış)  | Bağımlılık: GÖREV-003    | Öncelik: YÜKSEK
-[ ] GÖREV-007 | CRUD endpoint'lerini oluştur          | Bağımlılık: GÖREV-005    | Öncelik: YÜKSEK
-[ ] GÖREV-008 | E-posta (SMTP) entegrasyonu           | Bağımlılık: GÖREV-004    | Öncelik: ORTA
+[ ] GOREV-005 | API temel yapisini kur                    | Bagimlilik: GOREV-002    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-006 | Authentication sistemi (giris/cikis)      | Bagimlilik: GOREV-003    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-007 | CRUD endpointlerini olustur               | Bagimlilik: GOREV-005    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-008 | E-posta (SMTP) entegrasyonu               | Bagimlilik: GOREV-004    | Oncelik: Orta   | Durum: Bekliyor
 ```
 
 ## 🎨 Frontend
 
 ```
-[ ] GÖREV-009 | Tailwind CSS kurulumu ve tema         | Bağımlılık: GÖREV-002    | Öncelik: YÜKSEK
-[ ] GÖREV-010 | Ana sayfa tasarımı                    | Bağımlılık: GÖREV-009    | Öncelik: YÜKSEK
-[ ] GÖREV-011 | Giriş / Kayıt sayfaları               | Bağımlılık: GÖREV-006    | Öncelik: YÜKSEK
-[ ] GÖREV-012 | Dashboard tasarımı                    | Bağımlılık: GÖREV-009    | Öncelik: ORTA
-[ ] GÖREV-013 | Responsive düzenlemeler               | Bağımlılık: GÖREV-010    | Öncelik: ORTA
+[ ] GOREV-009 | Tailwind CSS kurulumu ve tema             | Bagimlilik: GOREV-002    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-010 | Ana sayfa tasarimi                        | Bagimlilik: GOREV-009    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-011 | Giris / Kayit sayfalari                   | Bagimlilik: GOREV-006    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-012 | Dashboard tasarimi                        | Bagimlilik: GOREV-009    | Oncelik: Orta   | Durum: Bekliyor
+[ ] GOREV-013 | Responsive duzenlemeler                   | Bagimlilik: GOREV-010    | Oncelik: Orta   | Durum: Bekliyor
 ```
 
 ## 🛡️ Admin Paneli (Zorunlu)
 
 ```
-[ ] GÖREV-014 | Admin panel temel yapısı (/admin)     | Bağımlılık: GÖREV-006    | Öncelik: YÜKSEK
-[ ] GÖREV-015 | Kullanıcı yönetimi (CRUD)             | Bağımlılık: GÖREV-014    | Öncelik: YÜKSEK
-[ ] GÖREV-016 | İçerik yönetimi                       | Bağımlılık: GÖREV-014    | Öncelik: ORTA
-[ ] GÖREV-017 | Raporlama ve istatistikler            | Bağımlılık: GÖREV-014    | Öncelik: ORTA
-[ ] GÖREV-018 | Sistem ayarları ekranı                | Bağımlılık: GÖREV-014    | Öncelik: DÜŞÜK
+[ ] GOREV-014 | Admin panel temel yapisi (/admin)         | Bagimlilik: GOREV-006    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-015 | Kullanici yonetimi (CRUD)                 | Bagimlilik: GOREV-014    | Oncelik: Yuksek | Durum: Bekliyor
+[ ] GOREV-016 | Icerik yonetimi                           | Bagimlilik: GOREV-014    | Oncelik: Orta   | Durum: Bekliyor
+[ ] GOREV-017 | Raporlama ve istatistikler                | Bagimlilik: GOREV-014    | Oncelik: Orta   | Durum: Bekliyor
+[ ] GOREV-018 | Sistem ayarlari ekrani                    | Bagimlilik: GOREV-014    | Oncelik: Dusuk  | Durum: Bekliyor
 ```
 
 ## 🧪 Test
 
 ```
-[ ] GÖREV-019 | Birim testleri yaz                    | Bağımlılık: GÖREV-007    | Öncelik: ORTA
-[ ] GÖREV-020 | Entegrasyon testleri yaz              | Bağımlılık: GÖREV-007    | Öncelik: ORTA
-[ ] GÖREV-021 | UI/UX ve erişilebilirlik testleri     | Bağımlılık: GÖREV-013    | Öncelik: ORTA
+[ ] GOREV-019 | Birim testleri yaz                        | Bagimlilik: GOREV-007    | Oncelik: Orta   | Durum: Bekliyor
+[ ] GOREV-020 | Entegrasyon testleri yaz                  | Bagimlilik: GOREV-007    | Oncelik: Orta   | Durum: Bekliyor
+[ ] GOREV-021 | UI/UX ve erisilebilirlik testleri         | Bagimlilik: GOREV-013    | Oncelik: Orta   | Durum: Bekliyor
 ```
 
 ## ⚙️ Yapılandırma Ekranı
 
 ```
-[ ] GÖREV-022 | Config/Setup arayüzü oluştur (/setup) | Bağımlılık: GÖREV-009    | Öncelik: ORTA
-[ ] GÖREV-023 | .env dosyasına güvenli yazma          | Bağımlılık: GÖREV-022    | Öncelik: ORTA
+[ ] GOREV-022 | Config/Setup arayuzu olustur (/setup)     | Bagimlilik: GOREV-009    | Oncelik: Orta   | Durum: Bekliyor
+[ ] GOREV-023 | .env dosyasina guvenli yazma              | Bagimlilik: GOREV-022    | Oncelik: Orta   | Durum: Bekliyor
+```
+
+## 🚀 DevOps
+
+```
+[ ] GOREV-024 | CI pipeline (lint-test-build) kur         | Bagimlilik: GOREV-007    | Oncelik: Orta   | Durum: Bekliyor
+[ ] GOREV-025 | CD ve release/rollback adimlarini tanimla | Bagimlilik: GOREV-024    | Oncelik: Orta   | Durum: Bekliyor
+[ ] GOREV-026 | Gozlemlenebilirlik (log/health/alarm) ekle| Bagimlilik: GOREV-024    | Oncelik: Orta   | Durum: Bekliyor
 ```
 
 ## 📚 Dokümantasyon
 
 ```
-[ ] GÖREV-024 | README.md tamamla                     | Bağımlılık: GÖREV-023    | Öncelik: DÜŞÜK
-[ ] GÖREV-025 | USAGE.md (kullanım kılavuzu) tamamla  | Bağımlılık: GÖREV-023    | Öncelik: DÜŞÜK
-[ ] GÖREV-026 | CHANGELOG.md oluştur                  | Bağımlılık: GÖREV-024    | Öncelik: DÜŞÜK
+[ ] GOREV-027 | README.md tamamla                         | Bagimlilik: GOREV-023    | Oncelik: Dusuk  | Durum: Bekliyor
+[ ] GOREV-028 | USAGE.md (kullanim kilavuzu) tamamla     | Bagimlilik: GOREV-023    | Oncelik: Dusuk  | Durum: Bekliyor
+[ ] GOREV-029 | CHANGELOG.md olustur                     | Bagimlilik: GOREV-027    | Oncelik: Dusuk  | Durum: Bekliyor
 ```
 
 ---

@@ -15,6 +15,21 @@ Projeyi teslime kapatmadan once final kalite kapisini uygula.
 
 ---
 
+## Config/Setup Uretimi (Zorunlu)
+
+Teslimden once asagidaki adimlar zorunludur:
+
+1. `/setup` veya `/config` rotasinda calisan bir konfigurasyon ekrani olustur.
+2. En az su alanlari icersin:
+   - Veritabani: host, port, database, user, password
+   - SMTP: host, port, user, password, sender
+   - Uygulama: app url, timezone, locale
+3. Kaydetme akisinda bilgiler `.env` (veya esdeger guvenli config dosyasi) ile senkronlansin.
+4. Gerekirse "baglanti testi" butonlari eklenerek dogrulama saglansin.
+5. Bu adim tamamlanmadan proje "teslime hazir" raporlanamaz.
+
+---
+
 ## Cikti Paketleri
 
 - `/README.md`
