@@ -43,7 +43,7 @@ Referans: `docs/EXPERT_PRODUCT_STANDARD.md`
 ### Adım 1 — Projeyi İndir
 
 ```bash
-git clone https://github.com/KULLANICI_ADIN/cursor-agent-tr.git
+git clone https://github.com/KayaErhan/cursor-agent-tr.git
 cd cursor-agent-tr
 ```
 
