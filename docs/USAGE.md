@@ -3,7 +3,7 @@
 > Bu kılavuz, Cursor Otonom Geliştirme Ajanı'nı nasıl kuracağınızı, yapılandıracağınızı ve verimli şekilde kullanacağınızı adım adım açıklar.
 
 Bu surumde varsayilan calisma modu **Expert Mode** olarak kabul edilir.
-Detayli kalite standardi icin: `/docs/EXPERT_PRODUCT_STANDARD.md`
+Workflow ve kalite kurallari icin: `/docs/WORKFLOW_STATE.md` ve `/docs/WORKFLOW_DOD.md`
 
 ---
 
@@ -80,6 +80,7 @@ Bu yöntemde komutlar **tüm projelerinizde** otomatik olarak çalışır.
 
 ```
 /proje_basla     ✅ görünüyor
+/proje_workflow  ✅ görünüyor
 /proje_incele    ✅ görünüyor
 /proje_durum     ✅ görünüyor
 /proje_test      ✅ görünüyor
@@ -156,25 +157,15 @@ veya doğrudan başlamak için:
 
 ---
 
-### `/proje_basla`
+### `/proje_workflow`
 
-**Ne yapar:** Proje dökümanını alır ve expert standartta otomatik geliştirme sürecini başlatır. Kanonik akış içinde `/proje_incele` ve `/proje_tasarim` sonrasındaki ana geliştirme adımıdır.
+**Ne yapar:** Projeyi n8n benzeri bir şekilde **adım adım workflow** olarak yönetir. `docs/WORKFLOW_STATE.md` dosyasına bakarak hangi adımda olunduğunu belirler ve sırasıyla analysis → design → dev → gap_scan → continue → test → quality_gate → security → finish adımlarını yürütür.
 
-**Kanonik yaşam döngüsündeki yeri:**
-1. `/proje_incele`
-2. Dil/Framework + SQL seçimi
-3. `/proje_tasarim`
-4. `/proje_basla`
-5. `/proje_eksik_tara`
-6. `/proje_devam`
-7. `/proje_test`
-8. `/proje_kalite_kapisi`
-9. `/proje_guvenlik_tara`
-10. `/proje_bitir`
+**Çıktılar:**
+- Her adım için ilgili dokümanlar ve raporlar (`ANALYSIS.md`, `DESIGN_PROFILE.md`, `TODO.md`, `GAP_REPORT.md`, `TEST_REPORT.md`, `QUALITY_GATE_REPORT.md`, `SECURITY_REPORT.md`, `STATUS_REPORT.md` vb.)
+- Güncel `docs/WORKFLOW_STATE.md` ve `docs/WORKFLOW_DOD.md` ile uyumlu ilerleme
 
-**Oluşturulan dosyalar:** Tüm proje dosyaları, `/docs/TODO.md`, `/docs/FLOWCHART.md`, `/docs/ANALYSIS.md`, `/README.md`, `/docs/USAGE.md`
-
-**Ne zaman kullanılır:** Döküman analizi onaylandıktan sonra, geliştirmeye başlamak istediğinizde.
+**Ne zaman kullanılır:** Genellikle proje boyunca **tek süper komut** olarak; gerektiğinde sadece `/proje_devam` ile aynı adımda derinleşmek için.
 
 ---
 
