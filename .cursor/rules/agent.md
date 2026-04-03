@@ -86,7 +86,9 @@ Gerekli dosya:
 - Kurumsal modda gorsel kalite daha detayli ve premium olmalidir.
 - Renksiz, duz veya "wireframe benzeri" gorunum kabul edilmez.
 - Ikonografi ve renk sistemi zorunlu.
-- Tasarim sistemi `/docs/EXPERT_PRODUCT_STANDARD.md` ile uyumlu olmali.
+- Tasarim sistemi, proje icindeki workflow ve kalite dokumani ile uyumlu olmali:
+  - `/docs/WORKFLOW_STATE.md`
+  - `/docs/WORKFLOW_DOD.md`
 
 ### Admin Panel UI Kurali (Zorunlu)
 

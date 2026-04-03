@@ -22,7 +22,7 @@ Cursor IDE'ye proje dökümanını verdiğinde, ajan otomatik olarak:
 8. 📚 **Dokümantasyon yazar** — README, kullanım kılavuzu, changelog
 
 Varsayilan calisma seviyesi: **Expert Mode**  
-Referans: `docs/EXPERT_PRODUCT_STANDARD.md`
+Workflow ve kalite kurallari icin: `docs/WORKFLOW_STATE.md` ve `docs/WORKFLOW_DOD.md`
 
 **Her projede zorunlu olarak şunları üretir:**
 - ✅ Tam işlevsel **Admin Paneli** (`/admin`)
@@ -79,7 +79,7 @@ Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 | Komut | Açıklama |
 |---|---|
 | `/proje_incele` | Dökümanı analiz eder, akış şeması çıkarır, risk raporu hazırlar |
-| `/proje_basla` | Baştan sona tam otomatik geliştirme döngüsünü başlatır |
+| `/proje_workflow` | n8n benzeri uçtan uca workflow'u adım adım yönetir (önerilen süper komut) |
 | `/proje_durum` | Anlık ilerlemeyi ve todo listesini gösterir |
 | `/proje_test` | Tüm bileşenleri test eder, hataları otomatik düzeltir |
 | `/proje_bitir` | Projeyi sonlandırır, config ekranı ve son dokümantasyonu oluşturur |
@@ -106,13 +106,12 @@ Bu komut; komut-dokuman tutarliligi, placeholder/kirik linkler, TODO formati ve 
 2. /proje_incele yaz → Dökümanı sürükle bırak → Enter
 3. Dil/Framework + SQL seçimini netleştir
 4. /proje_tasarim ile profil/tema seç
-5. /proje_basla ile geliştirmeyi başlat
-6. /proje_eksik_tara ile eksikleri tara
-7. /proje_devam ile eksikleri kapat
-8. /proje_test ile testleri çalıştır
-9. /proje_kalite_kapisi ile kalite eşiğini doğrula
-10. /proje_guvenlik_tara ile güvenlik taramasını tamamla
-11. /proje_bitir ile config/setup dahil teslimi kapat
+5. /proje_workflow ile n8n benzeri workflow'u başlat
+6. Gerekirse /proje_devam ile aynı adımda derinleş
+7. /proje_test ile testleri çalıştır
+8. /proje_kalite_kapisi ile kalite eşiğini doğrula
+9. /proje_guvenlik_tara ile güvenlik taramasını tamamla
+10. /proje_bitir ile config/setup dahil teslimi kapat
 ```
 
 ### Döküman Ekleme Yöntemleri
