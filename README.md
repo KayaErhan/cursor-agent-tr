@@ -1,5 +1,7 @@
 # 🤖 Cursor Otonom Geliştirme Ajanı
 
+<!-- validate_quality kanonik: /proje_incele | Dil/Framework + SQL | /proje_tasarim | /proje_basla | /proje_eksik_tara | /proje_devam | /proje_test | /proje_kalite_kapisi | /proje_guvenlik_tara | /proje_bitir -->
+
 > Cursor IDE için tam otomatik yazılım geliştirme sistemi. Proje dökümanını ver, gerisini ajan halleder.
 
 [![Cursor IDE](https://img.shields.io/badge/Cursor-IDE-blue?style=flat-square)](https://cursor.sh)
@@ -70,6 +72,17 @@ Copy-Item -Recurse .cursor\rules $env:USERPROFILE\.cursor\rules
 
 Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 
+### Adım 4 — Docker (isteğe bağlı)
+
+PostgreSQL veya yardımcı araçları konteynerda çalıştırmak için `docker/README.md` dosyasına bakın. Özet:
+
+```bash
+copy docker\env.example docker\.env   # Windows: önce .env oluşturun
+docker compose -f docker/compose.yml up -d
+```
+
+Uygulama projesine `Dockerfile` ve tam Compose düzeni eklemek için chat’te **`/proje_docker`** kullanabilirsiniz.
+
 ---
 
 ## 📖 Kullanım
@@ -81,6 +94,8 @@ Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 | `/proje_incele` | Dökümanı analiz eder, akış şeması çıkarır, risk raporu hazırlar |
 | `/proje_workflow` | n8n benzeri uçtan uca workflow'u adım adım yönetir (önerilen süper komut) |
 | `/proje_durum` | Anlık ilerlemeyi ve todo listesini gösterir |
+| `/proje_calistir` | Geliştirme sunucusunu (npm/pnpm/docker vb.) tespit edip çalıştırır |
+| `/proje_docker` | İstenildiğinde Dockerfile / Compose / .dockerignore ve DB servisleri kurar |
 | `/proje_test` | Tüm bileşenleri test eder, hataları otomatik düzeltir |
 | `/proje_bitir` | Projeyi sonlandırır, config ekranı ve son dokümantasyonu oluşturur |
 | `/proje_sifirla` | Mevcut çalışmayı arşivler, yeni proje için temizler |
@@ -89,7 +104,7 @@ Cursor IDE'yi açın ve chat penceresini başlatın (`Ctrl+L` / `Cmd+L`).
 | `/proje_tasarim` | Kurumsal/standart profil + dark/soft-dark/light/hepsi tema seçimi yapar |
 | `/proje_kalite_kapisi` | Kurumsal kalite kapılarını puanlayarak geçiş kararı verir |
 | `/proje_guvenlik_tara` | Güvenlik ve uyum taraması yapar, kritikleri raporlar |
-| `/git_agent_update` | Repodan güncelleme alır, komut/rule setini senkronlar |
+| `/git_agent_update` | Repoyu çeker; yeni/değişen komut veya kural varsa global kopya için onay sorar |
 
 ### Kalite Doğrulama
 
@@ -106,12 +121,13 @@ Bu komut; komut-dokuman tutarliligi, placeholder/kirik linkler, TODO formati ve 
 2. /proje_incele yaz → Dökümanı sürükle bırak → Enter
 3. Dil/Framework + SQL seçimini netleştir
 4. /proje_tasarim ile profil/tema seç
-5. /proje_workflow ile n8n benzeri workflow'u başlat
-6. Gerekirse /proje_devam ile aynı adımda derinleş
-7. /proje_test ile testleri çalıştır
-8. /proje_kalite_kapisi ile kalite eşiğini doğrula
-9. /proje_guvenlik_tara ile güvenlik taramasını tamamla
-10. /proje_bitir ile config/setup dahil teslimi kapat
+5. /proje_workflow veya /proje_basla ile geliştirmeyi başlat
+6. /proje_eksik_tara ile eksikleri tara
+7. Gerekirse /proje_devam ile aynı adımda derinleş
+8. /proje_test ile testleri çalıştır
+9. /proje_kalite_kapisi ile kalite eşiğini doğrula
+10. /proje_guvenlik_tara ile güvenlik taramasını tamamla
+11. /proje_bitir ile config/setup dahil teslimi kapat
 ```
 
 ### Döküman Ekleme Yöntemleri
@@ -138,6 +154,8 @@ cursor-agent-tr/
 │   │   ├── proje_basla.md      # Ana geliştirme komutu
 │   │   ├── proje_incele.md     # Döküman analizi
 │   │   ├── proje_durum.md      # İlerleme raporu
+│   │   ├── proje_calistir.md   # Geliştirme sunucusunu çalıştır
+│   │   ├── proje_docker.md     # Docker / Compose kurulumu
 │   │   ├── proje_test.md       # Test & uyum kontrolü
 │   │   ├── proje_bitir.md      # Proje sonlandırma
 │   │   ├── proje_sifirla.md    # Temizle & sıfırla
@@ -145,7 +163,8 @@ cursor-agent-tr/
 │   │   ├── proje_devam.md      # Eksiklerden devam
 │   │   ├── proje_tasarim.md    # Tasarım profili yönetimi
 │   │   ├── proje_kalite_kapisi.md # Kalite kapısı
-│   │   └── proje_guvenlik_tara.md # Güvenlik taraması
+│   │   ├── proje_guvenlik_tara.md # Güvenlik taraması
+│   │   └── git_agent_update.md   # Repodan komut/rule güncelle
 │   └── rules/
 │       └── agent.md            # Sistem kuralları ve davranış tanımı
 ├── docs/
@@ -156,6 +175,10 @@ cursor-agent-tr/
 │   └── examples/               # Örnek proje dökümanları
 │       ├── ecommerce.md
 │       └── blog.md
+├── docker/                     # İsteğe bağlı Compose (PostgreSQL, pgAdmin profili)
+│   ├── compose.yml
+│   ├── env.example
+│   └── README.md
 ├── scripts/
 │   └── install.sh              # Otomatik kurulum scripti
 ├── README.md                   # Bu dosya

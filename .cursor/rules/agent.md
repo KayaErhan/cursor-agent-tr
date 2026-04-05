@@ -144,6 +144,14 @@ Her asamada guncelle:
 
 ---
 
+## Docker (Istege Bagli)
+
+- Kullanici Docker / konteyner kurulumu istediginde `/proje_docker` komutunu uygula veya `docker/` klasorundeki sablonlari (`compose.yml`, `env.example`, `README.md`) referans al.
+- Zorunlu degildir; kullanici istemeden Dockerfile veya Compose ekleme.
+- Ornek sifreler ve `DATABASE_URL` dokumantasyonda yazilsin; gercek sifreleri repoya commit etme.
+
+---
+
 ## Kisitlar
 
 - Yalnizca yerel ve self-contained calis.

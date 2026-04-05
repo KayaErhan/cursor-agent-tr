@@ -1,0 +1,41 @@
+# Isteg bagli yerel servisler (PostgreSQL varsayilan stack ile uyumlu).
+# Calistirma: docker klasorunde .env olusturun (env.example'dan), sonra:
+#   docker compose -f docker/compose.yml up -d
+# Durdurma: docker compose -f docker/compose.yml down
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: cursor-agent-dev-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-app}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-app}
+      POSTGRES_DB: ${POSTGRES_DB:-app}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-app} -d ${POSTGRES_DB:-app}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Profil: docker compose -f docker/compose.yml --profile tools up -d
+  pgadmin:
+    profiles: ["tools"]
+    image: dpage/pgadmin4:8
+    container_name: cursor-agent-dev-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@local.dev}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

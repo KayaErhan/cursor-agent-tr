@@ -1,5 +1,7 @@
 # 📖 Kullanım Kılavuzu — Cursor Otonom Geliştirme Ajanı
 
+<!-- validate_quality kanonik: /proje_incele | Dil/Framework + SQL | /proje_tasarim | /proje_basla | /proje_eksik_tara | /proje_devam | /proje_test | /proje_kalite_kapisi | /proje_guvenlik_tara | /proje_bitir -->
+
 > Bu kılavuz, Cursor Otonom Geliştirme Ajanı'nı nasıl kuracağınızı, yapılandıracağınızı ve verimli şekilde kullanacağınızı adım adım açıklar.
 
 Bu surumde varsayilan calisma modu **Expert Mode** olarak kabul edilir.
@@ -83,6 +85,8 @@ Bu yöntemde komutlar **tüm projelerinizde** otomatik olarak çalışır.
 /proje_workflow  ✅ görünüyor
 /proje_incele    ✅ görünüyor
 /proje_durum     ✅ görünüyor
+/proje_calistir  ✅ görünüyor
+/proje_docker    ✅ görünüyor
 /proje_test      ✅ görünüyor
 /proje_bitir     ✅ görünüyor
 /proje_sifirla   ✅ görünüyor
@@ -184,6 +188,35 @@ veya doğrudan başlamak için:
 **Oluşturulan dosyalar:** `/docs/STATUS_REPORT.md`
 
 **Ne zaman kullanılır:** Geliştirme sürecinde ilerlemeyi takip etmek için istediğiniz zaman.
+
+---
+
+### `/proje_calistir`
+
+**Ne yapar:** Açık workspace kökünde projeyi analiz eder (`package.json`, Docker, Makefile vb.), bağımlılıkları gerekirse kurar ve geliştirme sunucusunu başlatır (ör. `npm run dev`, `pnpm dev`, `docker compose up`).
+
+**Çıktılar:**
+- Çalıştırılan tam komut satırı
+- Logdan çıkarılan tahmini URL/port (ör. `http://localhost:3000`)
+- Süreci durdurma notu (`Ctrl+C`, `docker compose down` vb.)
+
+**Oluşturulan dosyalar:** Yok (gerekirse `README.md` / `docs/USAGE.md` içinde “nasıl çalıştırılır” satırı güncellenir).
+
+**Ne zaman kullanılır:** Uygulamayı tarayıcıda görmek veya API’yi yerelde denemek için; geliştirme sunucusunu hızlıca açmak istediğinizde.
+
+---
+
+### `/proje_docker`
+
+**Ne yapar:** Projeye uygun Docker yapılandırması ekler veya günceller: `Dockerfile`, `docker-compose` / `compose.yml`, `.dockerignore`, veritabanı servisleri ve ortam değişkeni örnekleri. Bu repoda hazır şablon `docker/` klasöründedir (PostgreSQL + isteğe bağlı pgAdmin profili).
+
+**Çıktılar:**
+- Gerekli konteyner tanımları ve güvenli `env.example` / dokümantasyon
+- `README.md` içinde “Docker ile çalıştırma” özeti (ajan günceller)
+
+**Oluşturulan dosyalar:** Projeye göre değişir; veritabanı için `docker/compose.yml` şablonu kullanılabilir.
+
+**Ne zaman kullanılır:** Yerelde PostgreSQL’i Docker’da çalıştırmak, ekibin aynı DB sürümünü kullanması veya uygulamayı imaja almak istediğinizde.
 
 ---
 
@@ -313,12 +346,13 @@ veya doğrudan başlamak için:
 
 ### `/git_agent_update`
 
-**Ne yapar:** Agent komut/rule setini git reposundan günceller, güncelleme varsa pull eder ve komutları senkronlar.
+**Ne yapar:** Agent komut/rule setini git reposundan günceller, güncelleme varsa pull eder. Pull sonrası `.cursor/commands` veya `.cursor/rules` altında **yeni veya değişen** dosya varsa, global Cursor klasörüne (`~/.cursor/...` veya Windows’ta `%USERPROFILE%\.cursor\...`) kopyalayın mı diye **size sorar**; onay vermeden otomatik kopyalama yapmaz.
 
 **Çıktılar:**
 - Güncelleme durumu (güncel / güncellendi / hata)
 - Eski commit -> yeni commit
-- Senkronlanan komut/rule özeti
+- Değişen komut/rule dosya listesi
+- Global senkron için kullanıcı onayı (evet/hayır)
 
 **Ne zaman kullanılır:** Repo güncellemesi yayımlandığında veya komut setini en güncel hale çekmek istediğinizde.
 
@@ -512,7 +546,7 @@ Bu komut su kontrolleri yapar:
 ## 📬 Destek & Geri Bildirim
 
 Sorun veya öneriniz için:
-- GitHub Issues: [github.com/KULLANICI_ADIN/cursor-agent-tr/issues](https://github.com/KULLANICI_ADIN/cursor-agent-tr/issues)
+- GitHub Issues: [github.com/KayaErhan/cursor-agent-tr/issues](https://github.com/KayaErhan/cursor-agent-tr/issues)
 - Pull Request'lerinizi bekliyoruz!
 
 ---

@@ -1,3 +1,4 @@
+<!-- validate_quality kanonik: /proje_incele | Dil/Framework + SQL | /proje_tasarim | /proje_basla | /proje_eksik_tara | /proje_devam | /proje_test | /proje_kalite_kapisi | /proje_guvenlik_tara | /proje_bitir -->
 # /proje_basla - Workflow Tabanli Ana Gelistirme
 
 Bu komut, artik **n8n benzeri workflow yapisinin gelistirme odakli parcasi** gibi davranir.

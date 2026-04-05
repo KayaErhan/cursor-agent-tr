@@ -81,6 +81,8 @@ echo -e "${BLUE}├────────────────────�
 echo -e "${BLUE}│${NC}  /proje_incele  → Döküman analizi          ${BLUE}│${NC}"
 echo -e "${BLUE}│${NC}  /proje_basla   → Tam otomatik geliştirme  ${BLUE}│${NC}"
 echo -e "${BLUE}│${NC}  /proje_durum   → İlerleme raporu          ${BLUE}│${NC}"
+echo -e "${BLUE}│${NC}  /proje_calistir → Geliştirme sunucusu     ${BLUE}│${NC}"
+echo -e "${BLUE}│${NC}  /proje_docker  → Docker / Compose kurulumu ${BLUE}│${NC}"
 echo -e "${BLUE}│${NC}  /proje_test    → Test & uyum kontrolü     ${BLUE}│${NC}"
 echo -e "${BLUE}│${NC}  /proje_bitir   → Proje sonlandırma        ${BLUE}│${NC}"
 echo -e "${BLUE}│${NC}  /proje_sifirla → Temizle & sıfırla        ${BLUE}│${NC}"
