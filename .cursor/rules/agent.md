@@ -133,6 +133,7 @@ Her asamada guncelle:
 - `/docs/ANALYSIS.md`
 - `/docs/FLOWCHART.md`
 - `/docs/TODO.md`
+- `/docs/CANONICAL_FLOW.md`
 - `/docs/STATUS_REPORT.md`
 - `/docs/TEST_REPORT.md`
 - `/docs/QUALITY_GATE_REPORT.md`

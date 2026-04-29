@@ -6,7 +6,7 @@ Covers:
 - TODO-011 command/docs consistency
 - TODO-012 placeholder & local link checks
 - TODO-014 TODO format/schema checks
-- TODO-015 README/USAGE <-> command contract checks
+- TODO-015 README/USAGE command refs; kanonik akis tek kaynak: docs/CANONICAL_FLOW.md
 """
 
 from __future__ import annotations
@@ -61,6 +61,7 @@ def check_command_refs(errors: list[str]) -> None:
 
 
 def check_canonical_flow(errors: list[str]) -> None:
+    """Tek kaynak: docs/CANONICAL_FLOW.md (README/USAGE/proje_basla icinde tekrar zorunlu degil)."""
     expected = [
         "/proje_incele",
         "Dil/Framework + SQL",
@@ -73,23 +74,21 @@ def check_canonical_flow(errors: list[str]) -> None:
         "/proje_guvenlik_tara",
         "/proje_bitir",
     ]
-    targets = [
-        ROOT / "README.md",
-        ROOT / "docs" / "USAGE.md",
-        ROOT / ".cursor" / "commands" / "proje_basla.md",
-    ]
-    for file in targets:
-        text = read_text(file)
-        pos = -1
-        for step in expected:
-            i = text.find(step)
-            if i == -1:
-                errors.append(f"Kanonik akis adimi eksik: {file.relative_to(ROOT)} -> {step}")
-                break
-            if i < pos:
-                errors.append(f"Kanonik akis sirasi bozuk: {file.relative_to(ROOT)} -> {step}")
-                break
-            pos = i
+    path = ROOT / "docs" / "CANONICAL_FLOW.md"
+    if not path.exists():
+        errors.append("docs/CANONICAL_FLOW.md eksik (kanonik akis tek kaynagi)")
+        return
+    text = read_text(path)
+    pos = -1
+    for step in expected:
+        i = text.find(step)
+        if i == -1:
+            errors.append(f"Kanonik akis adimi eksik: docs/CANONICAL_FLOW.md -> {step}")
+            break
+        if i < pos:
+            errors.append(f"Kanonik akis sirasi bozuk: docs/CANONICAL_FLOW.md -> {step}")
+            break
+        pos = i
 
 
 def check_todo_schema(errors: list[str]) -> None:
@@ -126,6 +125,7 @@ def main() -> int:
     critical_files = [
         ROOT / "README.md",
         ROOT / "docs" / "USAGE.md",
+        ROOT / "docs" / "CANONICAL_FLOW.md",
         ROOT / "docs" / "TODO.md",
         ROOT / ".cursor" / "commands" / "proje_basla.md",
         ROOT / ".cursor" / "commands" / "proje_bitir.md",

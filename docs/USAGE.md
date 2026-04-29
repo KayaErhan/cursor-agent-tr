@@ -1,8 +1,8 @@
 # 📖 Kullanım Kılavuzu — Cursor Otonom Geliştirme Ajanı
 
-<!-- validate_quality kanonik: /proje_incele | Dil/Framework + SQL | /proje_tasarim | /proje_basla | /proje_eksik_tara | /proje_devam | /proje_test | /proje_kalite_kapisi | /proje_guvenlik_tara | /proje_bitir -->
-
 > Bu kılavuz, Cursor Otonom Geliştirme Ajanı'nı nasıl kuracağınızı, yapılandıracağınızı ve verimli şekilde kullanacağınızı adım adım açıklar.
+
+**Önerilen komut sırası (tek kaynak, token dostu):** [CANONICAL_FLOW.md](CANONICAL_FLOW.md)
 
 Bu surumde varsayilan calisma modu **Expert Mode** olarak kabul edilir.
 Workflow ve kalite kurallari icin: `/docs/WORKFLOW_STATE.md` ve `/docs/WORKFLOW_DOD.md`
@@ -400,45 +400,15 @@ veya doğrudan başlamak için:
 
 ## 6. Geliştirme Akışı
 
-### Standart Akış (Önerilen)
+### Standart akış (önerilen)
 
-```
-📄 Döküman Hazırla
-        ↓
-🔍 /proje_incele  →  Analizi İncele & Onayla
-        ↓
-🧱 Dil/Framework + SQL seçimi
-        ↓
-🎨 /proje_tasarim →  profil + tema seç (kurumsal/standart + dark/soft-dark/light/hepsi)
-        ↓
-🚀 /proje_basla   →  Otomatik Geliştirme Başlar
-        ↓
-🔎 /proje_eksik_tara → Eksikleri ve önerileri tara
-        ↓
-🛠️ /proje_devam   → Eksikleri otomatik kapat
-        ↓
-📊 /proje_durum   →  İlerlemeyi Takip Et (isteğe bağlı, istediğin zaman)
-        ↓
-🧪 /proje_test    →  Testleri Çalıştır (kritik aşamalar sonrası)
-        ↓
-🧩 /proje_kalite_kapisi → Kalite puanını doğrula
-        ↓
-🔐 /proje_guvenlik_tara → Güvenlik açıklarını temizle
-        ↓
-🏁 /proje_bitir   →  Sonlandır & Teslim Al
-```
+**Komut sırası ve tablo:** [CANONICAL_FLOW.md](CANONICAL_FLOW.md) — README ile aynı tek kaynak; burada tekrar etmiyoruz.
 
-### Hızlı Başlangıç Akışı
+İsteğe bağlı her adımda: `/proje_durum`. Yerelde çalıştırma: `/proje_calistir`. Docker: `/proje_docker`.
 
-Analiz aşamasını atlamak istiyorsanız:
+### Hızlı başlangıç akışı
 
-```
-📄 Döküman Hazırla
-        ↓
-🚀 /proje_basla   →  Direkt Başla (analiz dahil)
-        ↓
-🏁 /proje_bitir   →  Teslim Al
-```
+Analizi kısaltmak istiyorsanız: döküman → `/proje_basla` (analiz dahil) → ilerledikçe `/proje_bitir` veya tam sıra ile [CANONICAL_FLOW.md](CANONICAL_FLOW.md).
 
 ---
 
@@ -537,7 +507,7 @@ python scripts/validate_quality.py
 
 Bu komut su kontrolleri yapar:
 - Komut referanslari gercek dosyalara gidiyor mu?
-- README/USAGE/proje_basla akisi kanonik sirayla uyumlu mu?
+- README/USAGE ve `docs/CANONICAL_FLOW.md` akisi uyumlu mu?
 - TODO satirlari beklenen semaya uyuyor mu?
 - Placeholder ve kirik lokal link var mi?
 

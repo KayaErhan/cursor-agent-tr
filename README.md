@@ -1,7 +1,5 @@
 # 🤖 Cursor Otonom Geliştirme Ajanı
 
-<!-- validate_quality kanonik: /proje_incele | Dil/Framework + SQL | /proje_tasarim | /proje_basla | /proje_eksik_tara | /proje_devam | /proje_test | /proje_kalite_kapisi | /proje_guvenlik_tara | /proje_bitir -->
-
 > Cursor IDE için tam otomatik yazılım geliştirme sistemi. Proje dökümanını ver, gerisini ajan halleder.
 
 [![Cursor IDE](https://img.shields.io/badge/Cursor-IDE-blue?style=flat-square)](https://cursor.sh)
@@ -114,21 +112,11 @@ python scripts/validate_quality.py
 
 Bu komut; komut-dokuman tutarliligi, placeholder/kirik linkler, TODO formati ve sozlesme kontrollerini dogrular.
 
-### Temel Kullanım Akışı
+### Temel kullanım sırası
 
-```
-1. Cursor'u aç → Chat'i başlat (Ctrl+L)
-2. /proje_incele yaz → Dökümanı sürükle bırak → Enter
-3. Dil/Framework + SQL seçimini netleştir
-4. /proje_tasarim ile profil/tema seç
-5. /proje_workflow veya /proje_basla ile geliştirmeyi başlat
-6. /proje_eksik_tara ile eksikleri tara
-7. Gerekirse /proje_devam ile aynı adımda derinleş
-8. /proje_test ile testleri çalıştır
-9. /proje_kalite_kapisi ile kalite eşiğini doğrula
-10. /proje_guvenlik_tara ile güvenlik taramasını tamamla
-11. /proje_bitir ile config/setup dahil teslimi kapat
-```
+**Tam komut sırası (tek kaynak):** [docs/CANONICAL_FLOW.md](docs/CANONICAL_FLOW.md)
+
+Kısa özet: Cursor’u aç → `/proje_incele` ve döküman → dil/SQL → `/proje_tasarim` → `/proje_workflow` veya `/proje_basla` → `/proje_eksik_tara` → gerekirse `/proje_devam` → `/proje_test` → `/proje_kalite_kapisi` → `/proje_guvenlik_tara` → `/proje_bitir`.
 
 ### Döküman Ekleme Yöntemleri
 
@@ -168,6 +156,7 @@ cursor-agent-tr/
 │   └── rules/
 │       └── agent.md            # Sistem kuralları ve davranış tanımı
 ├── docs/
+│   ├── CANONICAL_FLOW.md       # Önerilen komut sırası (tek doğruluk kaynağı)
 │   ├── USAGE.md                # Detaylı kullanım kılavuzu
 │   ├── ENTERPRISE_ROADMAP.md   # Kurumsal olgunlaşma planı
 │   ├── STACK_MATRIX.md         # Stack öneri matrisi
