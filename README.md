@@ -90,7 +90,8 @@ Uygulama projesine `Dockerfile` ve tam Compose düzeni eklemek için chat’te *
 | Komut | Açıklama |
 |---|---|
 | `/proje_incele` | Dökümanı analiz eder, akış şeması çıkarır, risk raporu hazırlar |
-| `/proje_workflow` | n8n benzeri uçtan uca workflow'u adım adım yönetir (önerilen süper komut) |
+| `/proje_orkestra` | **Önerilen:** Orkestra v2 — subagent’lar, dalga kotası (min 3 TODO), otomatik devam |
+| `/proje_workflow` | `/proje_orkestra` alias; uçtan uca workflow |
 | `/proje_durum` | Anlık ilerlemeyi ve todo listesini gösterir |
 | `/proje_calistir` | Geliştirme sunucusunu (npm/pnpm/docker vb.) tespit edip çalıştırır |
 | `/proje_docker` | İstenildiğinde Dockerfile / Compose / .dockerignore ve DB servisleri kurar |
@@ -108,15 +109,29 @@ Uygulama projesine `Dockerfile` ve tam Compose düzeni eklemek için chat’te *
 
 ```bash
 python scripts/validate_quality.py
+python scripts/validate_orchestra.py
 ```
 
-Bu komut; komut-dokuman tutarliligi, placeholder/kirik linkler, TODO formati ve sozlesme kontrollerini dogrular.
+`validate_quality`: komut/doküman tutarlılığı, TODO, kanonik akış.  
+`validate_orchestra`: agent dosyaları, state v2, dalga kotası, orkestra delegasyonu.
+
+### Orkestra v2 (önerilen)
+
+- **Ana komut:** `/proje_orkestra` — subagent delegasyonu, dalga kotası (min 3 TODO), otomatik devam.
+- **10 uzman agent:** `.cursor/agents/` (discovery, TODO, state, mimari, UI, implementasyon, test, güvenlik, denetim, dokümantasyon).
+- **Spesifikasyon:** `agentv2.md` (repo kökü) ve `docs/ORCHESTRATION_ARCHITECTURE.md`.
+
+### Fallback (eski Cursor sürümleri)
+
+Native custom subagent (`.cursor/agents/`) yoksa sistem iptal edilmez: ana agent `orchestration_mode: fallback` ile aynı rolleri sırayla simule eder. `docs/WORKFLOW_STATE.md` içinde mod kaydedilir; `docs/ORCHESTRA_REPORT.md` fallback kullanıldığını belirtir.
+
+---
 
 ### Temel kullanım sırası
 
 **Tam komut sırası (tek kaynak):** [docs/CANONICAL_FLOW.md](docs/CANONICAL_FLOW.md)
 
-Kısa özet: Cursor’u aç → `/proje_incele` ve döküman → dil/SQL → `/proje_tasarim` → `/proje_workflow` veya `/proje_basla` → `/proje_eksik_tara` → gerekirse `/proje_devam` → `/proje_test` → `/proje_kalite_kapisi` → `/proje_guvenlik_tara` → `/proje_bitir`.
+Kısa özet: Cursor’u aç → `/proje_incele` ve döküman → dil/SQL → `/proje_tasarim` → **`/proje_orkestra`** (veya `/proje_basla`) → eksik/devam → test → kalite → güvenlik → `/proje_bitir`.
 
 ### Döküman Ekleme Yöntemleri
 
@@ -138,26 +153,19 @@ Döküman içeriğini kopyala, chat'e yapıştır, komutu yaz
 ```
 cursor-agent-tr/
 ├── .cursor/
+│   ├── agents/                 # Uzman subagent tanımları (10 rol)
 │   ├── commands/               # Slash komutları
-│   │   ├── proje_basla.md      # Ana geliştirme komutu
-│   │   ├── proje_incele.md     # Döküman analizi
-│   │   ├── proje_durum.md      # İlerleme raporu
-│   │   ├── proje_calistir.md   # Geliştirme sunucusunu çalıştır
-│   │   ├── proje_docker.md     # Docker / Compose kurulumu
-│   │   ├── proje_test.md       # Test & uyum kontrolü
-│   │   ├── proje_bitir.md      # Proje sonlandırma
-│   │   ├── proje_sifirla.md    # Temizle & sıfırla
-│   │   ├── proje_eksik_tara.md # Eksik ve öneri tarama
-│   │   ├── proje_devam.md      # Eksiklerden devam
-│   │   ├── proje_tasarim.md    # Tasarım profili yönetimi
-│   │   ├── proje_kalite_kapisi.md # Kalite kapısı
-│   │   ├── proje_guvenlik_tara.md # Güvenlik taraması
-│   │   └── git_agent_update.md   # Repodan komut/rule güncelle
+│   │   ├── proje_orkestra.md   # Orkestra v2 ana komut
+│   │   ├── proje_workflow.md   # Orkestra alias
+│   │   ├── proje_basla.md      # Geliştirme başlat
+│   │   └── ...                 # diğer proje_* komutları
 │   └── rules/
-│       └── agent.md            # Sistem kuralları ve davranış tanımı
+│       └── agent.md            # Orkestra şefi kuralları
 ├── docs/
-│   ├── CANONICAL_FLOW.md       # Önerilen komut sırası (tek doğruluk kaynağı)
-│   ├── USAGE.md                # Detaylı kullanım kılavuzu
+│   ├── CANONICAL_FLOW.md
+│   ├── ORCHESTRATION_ARCHITECTURE.md
+│   ├── AGENT_CONTRACTS.md
+│   ├── USAGE.md
 │   ├── ENTERPRISE_ROADMAP.md   # Kurumsal olgunlaşma planı
 │   ├── STACK_MATRIX.md         # Stack öneri matrisi
 │   ├── TODO.md                 # Örnek todo listesi şablonu
@@ -169,7 +177,9 @@ cursor-agent-tr/
 │   ├── env.example
 │   └── README.md
 ├── scripts/
-│   └── install.sh              # Otomatik kurulum scripti
+│   ├── install.sh
+│   ├── validate_quality.py
+│   └── validate_orchestra.py
 ├── README.md                   # Bu dosya
 ├── CHANGELOG.md                # Versiyon geçmişi
 └── LICENSE                     # MIT Lisansı

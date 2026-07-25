@@ -1,6 +1,8 @@
 # /proje_durum - Anlik Durum ve Sonraki Aksiyon
 
-`/docs/TODO.md`, `/docs/GAP_REPORT.md` ve `/docs/STATUS_REPORT.md` dosyalarini kullanarak durumu tek yerde ozetle.
+`/docs/TODO.md`, `/docs/GAP_REPORT.md`, `/docs/STATUS_REPORT.md` ve **`/docs/WORKFLOW_STATE.md` (v2)** dosyalarini kullanarak durumu ozetle.
+
+Orkestra alanlari (varsa): `implementation_wave`, `tasks_completed_this_wave`, `wave_quota_min`, `active_agents`, `blocked_by`, `completion_audit_status`, `orchestration_mode`.
 
 ---
 
@@ -20,7 +22,7 @@
 
 ## Onerilen Komut Mantigi
 
-- Kritik eksik varsa: `/proje_devam`
+- Kritik eksik varsa: `/proje_orkestra` veya `/proje_devam` (dalga kotasi)
 - Test acigi varsa: `/proje_test`
 - Tum gorevler kapandiysa: `/proje_kalite_kapisi`
 - Kalite kapisi gectiyse: `/proje_guvenlik_tara`

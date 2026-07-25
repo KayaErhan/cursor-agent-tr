@@ -50,12 +50,13 @@ Bitmis sayilmasi icin:
 ## 3. dev (Gelistirme)
 
 Bitmis sayilmasi icin:
-- `docs/TODO.md` asagidaki sekilde olusmus olmali:
-  - En azindan altyapi, backend, frontend, admin, test, dokumantasyon, DevOps kategorilerinden gorevler var.
-  - Her satir su formata yakin olmali:
-    - `[ ] GOREV-XXX | Baslik | Bagimlilik: ... | Oncelik: Yuksek/Orta/Dusuk | Durum: Bekliyor/Devam Ediyor/Tamamlandi`
-  - En az 1 gorev `Durum: Devam Ediyor`.
-- Ilk temel moduller icin kod taslagi olusturulmus olmali (admin giris, temel sayfalar, ornek endpoint veya sayfa).
+- `docs/TODO.md` olusmus olmali:
+  - Altyapi, backend, frontend, admin, test, dokumantasyon, DevOps kategorilerinden gorevler.
+  - Satir formati (v2 oncelikli): `GOREV-XXX | ... | Agent: ... | Oncelik: ... | Durum: ... | Bagimlilik: ...`
+  - Eski format da kabul edilir (`docs/AGENT_CONTRACTS.md`).
+  - Gorevlerde `Agent:` ve dosya sahipligi atanmis olmali (orkestra).
+- **Orkestra dalga kotasi:** `dev` icinde en az **bir oturumda 3+** gorev islenmis ve kanitlanmis olmali (`WORKFLOW_STATE.tasks_completed_this_wave` veya TODO `[x]`).
+- Ilk temel moduller icin kod taslagi (admin, landing, ornek API).
 
 ---
 
@@ -73,10 +74,9 @@ Bitmis sayilmasi icin:
 ## 5. continue (Eksiklerden Devam)
 
 Bitmis sayilmasi icin:
-- `docs/TODO.md` icindeki Kritik ve Onemli maddelerin buyuk cogu kapatilmaya calisilmali:
-  - En azindan, teknik olarak uygulanabilir olanlar icin kod veya tasarim degisikligi yapilmis olmali.
-- `docs/STATUS_REPORT.md` guncellenmis olmali:
-  - Tamamlanan/kalan kritik ve onemli eksikler ozetlenmis.
+- Kritik ve onemli TODO maddelerinin buyuk cogu kapatilmaya calisilmis olmali.
+- **Orkestra:** `/proje_orkestra` veya `/proje_devam` cagrisi basina **min 3 gorev** kotasi uygulanmis olmali (tek gorevde durma yasagi).
+- `docs/STATUS_REPORT.md` guncel.
 
 ---
 
@@ -99,8 +99,7 @@ Bitmis sayilmasi icin:
 - `docs/QUALITY_GATE_REPORT.md` olusmus olmali:
   - Build, test, guvenlik, tasarim ve dokumantasyon icin puanlama yapilmis.
   - Toplam skor en az 85 uzerinden olmus veya altindaysa net olarak nedenleri yazili.
-- `scripts/validate_quality.py` calistirilmis kabul edilmeli:
-  - Komut/dokuman tutarliligi ve kritik placeholder/kirik link sorunlari giderilmeye calisilmali.
+- `scripts/validate_quality.py` **ve** `scripts/validate_orchestra.py` calistirilmis kabul edilmeli.
 
 ---
 

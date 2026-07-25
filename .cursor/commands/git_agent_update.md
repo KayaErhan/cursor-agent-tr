@@ -8,7 +8,7 @@ Bu komut, ajanin komut/rule setini git reposundan guncelleyip mevcut ortama senk
 
 - Uzak repoda yeni surum var mi kontrol et
 - Varsa repoyu guncelle (`git pull`)
-- **Yeni veya degisen** `.cursor/commands` ve `.cursor/rules` dosyalarini tespit et
+- **Yeni veya degisen** `.cursor/commands`, `.cursor/rules` ve `.cursor/agents` dosyalarini tespit et
 - Bu dosyalar varsa kullaniciya **sormadan** global kopyalama yapma; asagidaki soruyu kullan
 
 ---
@@ -27,22 +27,22 @@ Bu komut, ajanin komut/rule setini git reposundan guncelleyip mevcut ortama senk
    - Guncelleme varsa `git pull --ff-only` uygula.
    - Fast-forward mumkun degilse sebebi raporla.
 5. Degisen dosya tespiti (pull basarili ve commit ilerlediyse):
-   - `git diff --name-only ONCEKI_COMMIT..HEAD -- .cursor/commands .cursor/rules` ile listele.
+   - `git diff --name-only ONCEKI_COMMIT..HEAD -- .cursor/commands .cursor/rules .cursor/agents` ile listele.
    - Veya `git log -1 --name-only` / `git show --name-only --pretty="" HEAD` ile son commit’te bu yollarda degisen dosyalari al.
    - Bos degilse: asagidaki **kullanici onayi** adimina gec.
 6. Kullanici onayi (yeni veya guncellenen komut/rule **varsa** — zorunlu):
    - Otomatik olarak `~/.cursor/commands` veya `~/.cursor/rules` altina **kopyalama yapma**.
    - Kullaniciya **acikca** su anlamda sor (metin serbest ama soru sart):
 
-     > "Yeni veya guncellenen komut veya kural dosyalari var. Bunlari global Cursor klasorune (`~/.cursor/commands`, `~/.cursor/rules`) eklemek veya mevcut dosyalari bu surumle degistirmek istiyor musunuz?"
+     > "Yeni veya guncellenen komut, kural veya agent dosyalari var. Bunlari global Cursor klasorune (`~/.cursor/commands`, `~/.cursor/rules`, `~/.cursor/agents`) eklemek veya mevcut dosyalari bu surumle degistirmek istiyor musunuz?"
 
    - Kullanici **evet** derse:
-     - Windows: `$env:USERPROFILE\.cursor\commands` ve `$env:USERPROFILE\.cursor\rules`
-     - macOS/Linux: `~/.cursor/commands` ve `~/.cursor/rules`
+     - Windows: `$env:USERPROFILE\.cursor\commands`, `$env:USERPROFILE\.cursor\rules`, `$env:USERPROFILE\.cursor\agents`
+     - macOS/Linux: `~/.cursor/commands`, `~/.cursor/rules`, `~/.cursor/agents`
      - Eksik klasorleri olustur; ilgili dosyalari repodan kopyala.
    - Kullanici **hayir** veya netleştirme istemezse: sadece repodaki dosyalarin listesini ve yolunu raporla; global kopyalama yapma.
 7. Proje bazli kullanim:
-   - Repodaki `.cursor/commands/*.md` ve `.cursor/rules/*.md` zaten proje acikken aktif olur; bunu kullaniciya hatirlat.
+   - Repodaki `.cursor/commands`, `.cursor/rules`, `.cursor/agents` proje acikken aktif olur.
 8. Dogrulama:
    - Yeni veya guncellenen komut dosyalarini isim bazinda listele.
    - `/` menusunda gorunmesi gereken komutlari raporla.
@@ -64,6 +64,6 @@ Sonuc mesajinda su alanlar olmali:
 
 - Guncelleme durumu: `guncel` / `guncellendi` / `hata`
 - Onceki commit -> yeni commit
-- `.cursor/commands` ve `.cursor/rules` icinde degisen dosya listesi (yoksa "degisiklik yok")
+- `.cursor/commands`, `.cursor/rules`, `.cursor/agents` icinde degisen dosya listesi
 - **Yeni veya guncellenen komut/rule varsa:** kullaniciya soruldu mu ve cevap (evet/hayir/beklemede)
 - Senkronlanan komut/rule sayisi (onaylansa global, yoksa sadece repo)

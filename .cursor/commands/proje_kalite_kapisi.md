@@ -19,8 +19,16 @@ Puanlama ve kontrol maddeleri `/docs/EXPERT_PRODUCT_STANDARD.md` ile uyumlu olma
    - Admin panel expert ekran agaci tamam mi?
 5. Dokumantasyon kapisi
    - README/USAGE/TODO/GAP tutarli mi?
+   - Orkestra: `/proje_orkestra`, `.cursor/agents/` dokumante mi?
 
 ---
+
+## Scriptler (zorunlu)
+
+```bash
+python scripts/validate_quality.py
+python scripts/validate_orchestra.py
+```
 
 ## Puanlama (100)
 

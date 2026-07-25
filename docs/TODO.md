@@ -1,7 +1,6 @@
 # Yapılacaklar Listesi (TODO)
 
-> Bu dosya `/proje_workflow` veya `/proje_basla` komutlari tarafindan yeni proje baslangicinda otomatik doldurulur.
-> Her tamamlanan görev `[x]` olarak işaretlenir.
+> Tek kaynak: orkestra ve `todo-controller-agent` gunceller. v2 format: `docs/AGENT_CONTRACTS.md`
 
 ---
 
@@ -18,10 +17,10 @@
 
 ## 🚀 DevOps
 
-[ ] GOREV-001 | Ornek sablon gorevi | Bagimlilik: yok | Oncelik: Orta | Durum: Bekliyor
+[ ] GOREV-001 | Ornek orkestra sablon gorevi | Agent: implementation-agent | Oncelik: Orta | Durum: Bekliyor | Bagimlilik: yok
 
 ---
 
 ## Not
 
-Yeni bir proje baslattiginda bu dosya otomatik olarak gorevlerle doldurulacaktir.
+Yeni projede gorevler `/proje_orkestra` veya discovery/architect fazlariyla doldurulur.

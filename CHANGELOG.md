@@ -4,6 +4,22 @@ Bu proje [Semantic Versioning](https://semver.org/lang/tr/) kullanır.
 
 ---
 
+## [Unreleased] — Orkestra v2
+
+### Eklenenler
+- `/proje_orkestra` — çoklu subagent, dalga kotası (min 3 TODO), otomatik devam
+- `.cursor/agents/` — 10 uzman subagent tanımı
+- `docs/ORCHESTRATION_ARCHITECTURE.md`, `AGENT_CONTRACTS.md`, `FILE_OWNERSHIP.md`
+- `scripts/validate_orchestra.py` — orkestra yapısal doğrulama
+- `WORKFLOW_STATE` schema v2 (resume, dalga, dosya sahipliği)
+
+### Değişiklikler
+- `agent.md` — Orkestra Şefi rolü; tek-iki madde durma yasağı
+- `/proje_workflow`, `/proje_devam`, `/proje_basla` — orkestraya delegasyon
+- TODO v2 satır formatı (`Agent:` alanı)
+
+---
+
 ## [1.0.0] — 2025-03-24
 
 ### Eklenenler

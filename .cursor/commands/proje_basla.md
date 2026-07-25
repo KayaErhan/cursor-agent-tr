@@ -1,11 +1,13 @@
 # /proje_basla - Workflow Tabanli Ana Gelistirme
 
-Bu komut, artik **n8n benzeri workflow yapisinin gelistirme odakli parcasi** gibi davranir.
-Tam orkestrasyon icin tercih edilen komut: `/proje_workflow`.
+Bu komut gelistirme fazini hizli baslatir. **Tam otomasyon ve coklu TODO dalgasi** icin **`/proje_orkestra`** kullanin.
 
-Amac:
-- Döküman analizi ve tasarimdan sonra gelistirme fazini hizli baslatmak.
-- Gerekirse `docs/WORKFLOW_STATE.md` icindeki adimi `dev` veya sonrasi icin ilerletmek.
+`/proje_basla` yazildiginda:
+- Kisa yol: `current_step = dev` ise **`proje_orkestra.md` dalga kotasi** (min 3 gorev) uygula.
+- Tam surec: kullaniciya `/proje_orkestra` oner (tek komut, durmadan devam).
+
+Tam orkestrasyon: `/proje_orkestra` veya `/proje_workflow` (alias).
+
 
 ---
 
@@ -13,7 +15,7 @@ Amac:
 
 1. `docs/WORKFLOW_STATE.md` dosyasi yoksa:
    - `current_step = "analysis"` olacak sekilde yeni bir state olustur.
-   - Kullaniciya tam otomatik ilerlemek icin esas komutun `/proje_workflow` oldugunu belirt.
+   - Kullaniciya tam otomatik ilerlemek icin esas komutun `/proje_orkestra` oldugunu belirt.
 2. Eger state varsa:
    - `current_step` degerini kontrol et.
    - `analysis` veya `design` ise:
@@ -28,12 +30,10 @@ Amac:
    - Altyapi, Backend, Frontend, Admin, Test, Dokumantasyon, DevOps kategorilerinde gorevler ekle.
 3. Her gorev satiri icin su formata yakin kal:
 
-   `[ ] GOREV-XXX | Baslik | Bagimlilik: ... | Oncelik: Yuksek/Orta/Dusuk | Durum: Bekliyor`
+   `[ ] GOREV-XXX | Baslik | Agent: implementation-agent | Oncelik: Yuksek/Orta/Dusuk | Durum: Bekliyor | Bagimlilik: yok`
 
-4. En az bir gorevi `Durum: Devam Ediyor` yap ve bu gorevden baslayarak:
-   - Kod yaz.
-   - Ilgili testleri calistir.
-   - Gorev satirini `[x]` yap ve kisa sonuc notu ekle.
+4. **Dalga kotasi:** tek gorevde durma; en az **3** gorevi ayni oturumda isle (`docs/AGENT_CONTRACTS.md`).
+5. Her gorev icin: kod yaz, test calistir, `[x]` + kanit notu.
 
 ---
 
@@ -56,8 +56,7 @@ Amac:
 - Eger gelistirme adiminda anlamli ilerleme kaydedildiyse:
   - `docs/WORKFLOW_STATE.md` dosyasini guncelle:
     - `current_step` degeri, hala gelistirme asamasinda kalabilir (`"dev"`),
-      veya bir sonraki adima hazir isen, kullaniciya `/proje_workflow` komutuyla
-      siradaki adima gecilecegini belirt.
+      veya bir sonraki adima hazir isen, `/proje_orkestra` ile devam edilecegini belirt.
   - `last_command` alanini `/proje_basla` olarak yaz.
 
 ---
@@ -69,6 +68,6 @@ Kullaniciyi bilgilendirirken:
 - Tamamlanan gorevler ve kilit fonksiyonlar.
 - Admin/UI tarafinda yapilan gelistirmelerden kisa bir liste.
 - Onerilen sonraki komut:
-  - Tam otomatik akisa devam icin: `/proje_workflow`
+  - Tam otomatik akisa devam icin: `/proje_orkestra` veya `/proje_workflow`
   - Ayni adimda derinlesmek icin: `/proje_devam`
 

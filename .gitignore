@@ -15,3 +15,5 @@ Thumbs.db
 # Geçici dosyalar
 archive/
 *.log
+__pycache__/
+*.pyc

@@ -82,6 +82,7 @@ Bu yöntemde komutlar **tüm projelerinizde** otomatik olarak çalışır.
 
 ```
 /proje_basla     ✅ görünüyor
+/proje_orkestra  ✅ görünüyor
 /proje_workflow  ✅ görünüyor
 /proje_incele    ✅ görünüyor
 /proje_durum     ✅ görünüyor
@@ -161,15 +162,23 @@ veya doğrudan başlamak için:
 
 ---
 
+### `/proje_orkestra` (önerilen)
+
+**Ne yapar:** Orkestra v2 — subagent delegasyonu, **dalga kotası (en az 3 TODO)**, otomatik resume ve teslim denetimine kadar **tek oturumda devam**. Ara slash komut beklemez.
+
+**Çıktılar:** Güncel `WORKFLOW_STATE` (v2), `TODO`, raporlar, `docs/ORCHESTRA_REPORT.md`.
+
+**Ne zaman kullanılır:** Proje dokümanı veya mevcut kod verildiğinde; “bir iki madde yapıp durma” sorununu önlemek için **birincil komut**.
+
+Detay: `docs/ORCHESTRATION_ARCHITECTURE.md`, `.cursor/agents/`.
+
+---
+
 ### `/proje_workflow`
 
-**Ne yapar:** Projeyi n8n benzeri bir şekilde **adım adım workflow** olarak yönetir. `docs/WORKFLOW_STATE.md` dosyasına bakarak hangi adımda olunduğunu belirler ve sırasıyla analysis → design → dev → gap_scan → continue → test → quality_gate → security → finish adımlarını yürütür.
+**Ne yapar:** **`/proje_orkestra` ile aynı niyet** (geriye dönük alias). Workflow state + fazlar + dalga kotası geçerli.
 
-**Çıktılar:**
-- Her adım için ilgili dokümanlar ve raporlar (`ANALYSIS.md`, `DESIGN_PROFILE.md`, `TODO.md`, `GAP_REPORT.md`, `TEST_REPORT.md`, `QUALITY_GATE_REPORT.md`, `SECURITY_REPORT.md`, `STATUS_REPORT.md` vb.)
-- Güncel `docs/WORKFLOW_STATE.md` ve `docs/WORKFLOW_DOD.md` ile uyumlu ilerleme
-
-**Ne zaman kullanılır:** Genellikle proje boyunca **tek süper komut** olarak; gerektiğinde sadece `/proje_devam` ile aynı adımda derinleşmek için.
+**Ne zaman kullanılır:** Alışkanlık için `/proje_workflow`; yeni kullanımda `/proje_orkestra` tercih edin.
 
 ---
 
@@ -463,6 +472,12 @@ Her projede `/admin` rotasında bir admin paneli oluşturulur. Varsayılan özel
 - SMTP ayarlarınızı test edin.
 - Tüm bilgiler `.env` dosyasına güvenli şekilde kaydedilir.
 
+Detay: `docs/ORCHESTRATION_ARCHITECTURE.md`, `.cursor/agents/`.
+
+### Fallback (eski Cursor)
+
+`.cursor/agents/` desteklenmiyorsa ana agent `orchestration_mode: fallback` ile rolleri sirayla uygular; `docs/ORCHESTRA_REPORT.md` modu belirtir.
+
 ---
 
 ## 9. Sorun Giderme
@@ -474,7 +489,14 @@ Her projede `/admin` rotasında bir admin paneli oluşturulur. Varsayılan özel
 2. Cursor IDE'yi yeniden başlatın.
 3. Chat panelini kapatıp tekrar açın (`Ctrl+L`).
 
-### Ajan bir sonraki göreve geçmiyor
+### Ajan bir sonraki göreve geçmiyor / tek madde yapıp duruyor
+
+**Çözüm:**
+- **`/proje_orkestra`** kullanın (dalga kotası min 3 TODO).
+- `/proje_devam` ile aynı fazda devam edin.
+- `docs/WORKFLOW_STATE.md` → `tasks_completed_this_wave`, `blocked_by` kontrol edin.
+
+### Ajan bir sonraki göreve geçmiyor (genel)
 
 **Çözüm:**
 - `/proje_durum` yazarak mevcut durumu kontrol edin.

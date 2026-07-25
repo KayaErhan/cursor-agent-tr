@@ -97,8 +97,11 @@ def check_todo_schema(errors: list[str]) -> None:
     if "## 🚀 DevOps" not in text:
         errors.append("docs/TODO.md icinde DevOps bolumu eksik")
 
-    task_re = re.compile(
+    task_re_legacy = re.compile(
         r"^\[(?: |x)\] GOREV-\d{3} \| .+ \| Bagimlilik: .+ \| Oncelik: (?:Yuksek|Orta|Dusuk) \| Durum: (?:Bekliyor|Devam Ediyor|Tamamlandi)$"
+    )
+    task_re_v2 = re.compile(
+        r"^\[(?: |x)\] GOREV-\d{3} \| .+ \| Agent: [\w-]+ \| Oncelik: (?:Yuksek|Orta|Dusuk) \| Durum: (?:Bekliyor|Hazir|Devam Ediyor|Incelemede|Test Ediliyor|Bloke|Basarisiz|Tamamlandi)(?: \| Bagimlilik: .+)?$"
     )
 
     task_lines = [ln.strip() for ln in text.splitlines() if ln.strip().startswith("[")]
@@ -107,7 +110,7 @@ def check_todo_schema(errors: list[str]) -> None:
         return
 
     for ln in task_lines:
-        if not task_re.match(ln):
+        if not (task_re_legacy.match(ln) or task_re_v2.match(ln)):
             errors.append(f"TODO satiri format disi: {ln}")
 
 
@@ -144,6 +147,21 @@ def main() -> int:
     check_canonical_flow(errors)
     check_todo_schema(errors)
     check_contract_claims(errors)
+
+    try:
+        from validate_orchestra import collect_orchestra_errors
+    except ImportError:
+        import importlib.util
+
+        spec = importlib.util.spec_from_file_location(
+            "validate_orchestra", ROOT / "scripts" / "validate_orchestra.py"
+        )
+        mod = importlib.util.module_from_spec(spec)
+        assert spec.loader is not None
+        spec.loader.exec_module(mod)
+        collect_orchestra_errors = mod.collect_orchestra_errors
+
+    collect_orchestra_errors(errors)
 
     if errors:
         print("Kalite dogrulama basarisiz:")

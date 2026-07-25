@@ -30,7 +30,8 @@ Dil/Framework + SQL
 | 1 | `/proje_incele` | Döküman analizi |
 | 2 | Dil/Framework + SQL | Stack netliği |
 | 3 | `/proje_tasarim` | Profil + tema |
-| 4 | `/proje_basla` veya `/proje_workflow` | Geliştirme / süper workflow |
+| 4 | `/proje_orkestra` | **Önerilen:** uçtan uca orkestra; dalga kotası (min 3 TODO) |
+| 4b | `/proje_basla` veya `/proje_workflow` | Geliştirme / workflow alias (orkestraya yönlendirir) |
 | 5 | `/proje_eksik_tara` | Gap |
 | 6 | `/proje_devam` | Kapanmayan kritikler |
 | 7 | `/proje_test` | Test |
@@ -39,3 +40,5 @@ Dil/Framework + SQL
 | 10 | `/proje_bitir` | Teslim |
 
 İsteğe bağlı: `/proje_durum`, `/proje_calistir`, `/proje_docker`, `/git_agent_update`.
+
+**Orkestra v2:** Detaylı mimari → `docs/ORCHESTRATION_ARCHITECTURE.md`.
